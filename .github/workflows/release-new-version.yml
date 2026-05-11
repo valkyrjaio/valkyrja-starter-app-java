@@ -1,0 +1,26 @@
+name: Create a New Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version component to bump'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - rc
+
+run-name: "Release ${{ inputs.bump }} bump on ${{ github.ref_name }}"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: valkyrjaio/.github/.github/workflows/_create-release.yml@a377bb5bc151aa160a65143b688f383fd085455f
+    secrets: inherit
+    with:
+      bump: ${{ inputs.bump }}
