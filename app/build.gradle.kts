@@ -12,6 +12,14 @@ plugins {
     application
 }
 
+sourceSets {
+    main {
+        java {
+            exclude("**/*.example.java")
+        }
+    }
+}
+
 tasks.jar {
     archiveFileName.set("app.jar")
     manifest {
