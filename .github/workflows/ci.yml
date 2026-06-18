@@ -46,6 +46,7 @@ jobs:
     uses: valkyrjaio/.github/.github/workflows/_archunit-java.yml@13342de3aaf7e2c581c4b2420b59ef44a7b2c3b4
     with:
       ci-directory: .github/ci/archunit
+      copy-example-sources: true
       paths: |
         ci:
           - '.github/ci/archunit/**'
@@ -61,6 +62,7 @@ jobs:
     uses: valkyrjaio/.github/.github/workflows/_errorprone-java.yml@13342de3aaf7e2c581c4b2420b59ef44a7b2c3b4
     with:
       ci-directory: .github/ci/errorprone
+      copy-example-sources: true
       paths: |
         ci:
           - '.github/ci/errorprone/**'
@@ -76,6 +78,7 @@ jobs:
     uses: valkyrjaio/.github/.github/workflows/_spotbugs-java.yml@13342de3aaf7e2c581c4b2420b59ef44a7b2c3b4
     with:
       ci-directory: .github/ci/spotbugs
+      copy-example-sources: true
       paths: |
         ci:
           - '.github/ci/spotbugs/**'
@@ -91,6 +94,7 @@ jobs:
     uses: valkyrjaio/.github/.github/workflows/_junit-java.yml@13342de3aaf7e2c581c4b2420b59ef44a7b2c3b4
     with:
       ci-directory: .github/ci/junit
+      copy-example-sources: true
       paths: |
         ci:
           - '.github/ci/junit/**'
