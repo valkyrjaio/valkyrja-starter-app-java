@@ -13,7 +13,7 @@ import net.ltgt.gradle.errorprone.errorprone
 plugins {
     java
     id("net.ltgt.errorprone") version "5.1.0"
-    id("com.github.ben-manes.versions") version "0.53.0"
+    id("com.github.ben-manes.versions") version "0.54.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -43,8 +43,8 @@ sourceSets {
 dependencies {
     implementation("io.valkyrja:valkyrja:26.1.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
-    errorprone("com.google.errorprone:error_prone_core:2.39.0")
-    errorprone("com.uber.nullaway:nullaway:0.12.7")
+    errorprone("com.google.errorprone:error_prone_core:2.50.0")
+    errorprone("com.uber.nullaway:nullaway:0.13.7")
 }
 
 fun isNonStable(version: String): Boolean {
