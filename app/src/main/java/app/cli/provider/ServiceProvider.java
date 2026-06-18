@@ -14,7 +14,6 @@ import io.valkyrja.cli.interaction.input.contract.InputContract;
 import io.valkyrja.cli.interaction.output.factory.contract.OutputFactoryContract;
 import io.valkyrja.container.manager.contract.ContainerContract;
 import io.valkyrja.container.provider.contract.ServiceProviderContract;
-
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -22,8 +21,7 @@ public final class ServiceProvider implements ServiceProviderContract {
 
     @Override
     public Map<Class<?>, Consumer<ContainerContract>> publishers() {
-        return Map.of(
-                TestCommand.class, ServiceProvider::publishTestCommand);
+        return Map.of(TestCommand.class, ServiceProvider::publishTestCommand);
     }
 
     public static void publishTestCommand(ContainerContract container) {

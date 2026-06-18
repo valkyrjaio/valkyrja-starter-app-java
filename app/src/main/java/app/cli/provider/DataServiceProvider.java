@@ -19,7 +19,6 @@ import io.valkyrja.container.manager.contract.ContainerContract;
 import io.valkyrja.container.provider.contract.ServiceProviderContract;
 import io.valkyrja.event.data.contract.EventDataContract;
 import io.valkyrja.http.routing.data.contract.HttpRoutingDataContract;
-
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -28,8 +27,8 @@ public final class DataServiceProvider implements ServiceProviderContract {
     @Override
     public Map<Class<?>, Consumer<ContainerContract>> publishers() {
         return Map.of(
-                ContainerDataContract.class,  DataServiceProvider::publishContainerData,
-                EventDataContract.class,      DataServiceProvider::publishEventData,
+                ContainerDataContract.class, DataServiceProvider::publishContainerData,
+                EventDataContract.class, DataServiceProvider::publishEventData,
                 CliRoutingDataContract.class, DataServiceProvider::publishCliRoutingData,
                 HttpRoutingDataContract.class, DataServiceProvider::publishHttpRoutingData);
     }

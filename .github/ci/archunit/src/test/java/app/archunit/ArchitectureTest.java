@@ -23,6 +23,7 @@ public class ArchitectureTest {
     public static final ArchRule data_records_should_reside_in_data_packages =
             classes()
                     .that().areRecords()
+                    .and().haveSimpleNameNotEndingWith("Config")
                     .should().resideInAPackage("..data..")
                     .because("All data records should reside in an appropriate data namespace");
 

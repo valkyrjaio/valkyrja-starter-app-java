@@ -26,7 +26,7 @@ import io.valkyrja.cli.routing.attribute.route.RouteHandler;
 public class TestCommand extends Controller {
 
     protected static final String YES_ANSWER = "yes";
-    protected static final String NO_ANSWER  = "no";
+    protected static final String NO_ANSWER = "no";
 
     public TestCommand(InputContract input, OutputFactoryContract outputFactory) {
         super(input, outputFactory);
@@ -36,24 +36,21 @@ public class TestCommand extends Controller {
     @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "testCommandHandler")
     public OutputContract run(CliConfigContract config) {
         return outputFactory
-            .createOutput()
-            .withAddedMessages(
-                new Message(config.namespace() + " v" + config.version()),
-                new NewLine(),
-                new Question(
-                    "This is a question, right?",
-                    this::answered,
-                    new Answer(NO_ANSWER).withAllowedResponses(YES_ANSWER, NO_ANSWER)));
+                .createOutput()
+                .withAddedMessages(
+                        new Message(config.namespace() + " v" + config.version()),
+                        new NewLine(),
+                        new Question(
+                                "This is a question, right?",
+                                this::answered,
+                                new Answer(NO_ANSWER).withAllowedResponses(YES_ANSWER, NO_ANSWER)));
     }
 
     public OutputContract answered(OutputContract output, AnswerContract answer) {
         if (answer.getUserResponse().equals(YES_ANSWER)) {
-            return output
-                .withAddedMessages(
-                    new Message("You answered yes!!!"),
-                    new NewLine(),
-                    new NewLine())
-                .writeMessages();
+            return output.withAddedMessages(
+                            new Message("You answered yes!!!"), new NewLine(), new NewLine())
+                    .writeMessages();
         }
 
         return output.withAddedMessages(new NewLine());

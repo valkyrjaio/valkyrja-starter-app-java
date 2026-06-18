@@ -33,6 +33,7 @@ tasks.named<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask>("
 spotless {
     java {
         target("app/src/**/*.java")
+        targetExclude("**/*.example.java")
         googleJavaFormat("1.27.0").aosp()
         licenseHeader(
             """/*

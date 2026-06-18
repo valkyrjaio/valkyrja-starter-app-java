@@ -15,10 +15,10 @@ import java.io.IOException;
 /**
  * CGI-style entry point that re-bootstraps the application on every request.
  *
- * <p>Mimics CGI semantics: each incoming exchange gets a full bootstrap — clean
- * container isolation at the cost of re-bootstrapping overhead per request. Prefer
- * {@link App} (backed by {@link io.valkyrja.application.entry.ExchangeHttp}) for
- * production, which bootstraps once and uses an isolated child container per request.
+ * <p>Mimics CGI semantics: each incoming exchange gets a full bootstrap — clean container isolation
+ * at the cost of re-bootstrapping overhead per request. Prefer {@link App} (backed by {@link
+ * io.valkyrja.application.entry.ExchangeHttp}) for production, which bootstraps once and uses an
+ * isolated child container per request.
  */
 public class CgiApp extends ExchangeCgiHttp {
 
