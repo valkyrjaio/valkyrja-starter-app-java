@@ -41,7 +41,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.0.0")
+    implementation("io.valkyrja:valkyrja:26.1.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
 }
 

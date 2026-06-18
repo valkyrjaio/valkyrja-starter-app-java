@@ -40,7 +40,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.0.0")
+    implementation("io.valkyrja:valkyrja:26.1.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
     errorprone("com.google.errorprone:error_prone_core:2.39.0")
     errorprone("com.uber.nullaway:nullaway:0.12.7")
