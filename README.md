@@ -16,8 +16,8 @@ cleaning up the foundation.
 
 <p>
     <a href="https://github.com/valkyrjaio/application-java"><img src="https://img.shields.io/badge/Java-21--25-orange" alt="Java Version"></a>
-    <a href="https://github.com/valkyrjaio/application-java/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
-    <a href="https://github.com/valkyrjaio/application-java/actions/workflows/ci.yml?query=branch%3Amaster"><img src="https://github.com/valkyrjaio/application-java/actions/workflows/ci.yml/badge.svg?branch=master" alt="CI Status"></a>
+    <a href="https://github.com/valkyrjaio/application-java/blob/26.x/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+    <a href="https://github.com/valkyrjaio/application-java/actions/workflows/ci.yml?query=branch%3A26.x"><img src="https://github.com/valkyrjaio/application-java/actions/workflows/ci.yml/badge.svg?branch=26.x" alt="CI Status"></a>
     <a href="https://sonarcloud.io/summary/new_code?id=valkyrjaio_application-java"><img src="https://sonarcloud.io/api/project_badges/measure?project=valkyrjaio_application-java&metric=sqale_rating" alt="Maintainability Rating"></a>
 </p>
 
@@ -185,13 +185,13 @@ under the [MIT license][MIT license url]. See [`LICENSE.md`](./LICENSE.md).
 
 [netty url]: https://github.com/valkyrjaio/netty
 
-[docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/master/src/main/java/io/valkyrja/README.md
+[docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/README.md
 
-[http docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/master/src/main/java/io/valkyrja/http
+[http docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/http
 
-[cli docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/master/src/main/java/io/valkyrja/cli
+[cli docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/cli
 
-[container docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/master/src/main/java/io/valkyrja/container
+[container docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/container
 
 [contributing url]: https://github.com/valkyrjaio/.github/blob/master/CONTRIBUTING.md
 
