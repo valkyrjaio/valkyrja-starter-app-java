@@ -31,6 +31,7 @@ sourceSets {
     main {
         java {
             srcDirs("../../../app/src/main/java")
+            exclude("**/*.example.java")
         }
     }
 }

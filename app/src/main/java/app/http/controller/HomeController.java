@@ -23,7 +23,6 @@ import io.valkyrja.http.message.response.contract.TextResponseContract;
 import io.valkyrja.http.message.response.factory.contract.ResponseFactoryContract;
 import io.valkyrja.http.routing.attribute.Route;
 import io.valkyrja.http.routing.attribute.route.RouteHandler;
-
 import java.util.Map;
 
 public class HomeController extends Controller {
@@ -32,16 +31,29 @@ public class HomeController extends Controller {
         super(request, responseFactory);
     }
 
-    @Route(path = "/version", name = "version", requestMethods = {RequestMethod.GET})
-    @Route(path = "/version", name = "version.post", requestMethods = {RequestMethod.POST})
-    @Route(path = "/version", name = "version.put", requestMethods = {RequestMethod.PUT})
+    @Route(
+            path = "/version",
+            name = "version",
+            requestMethods = {RequestMethod.GET})
+    @Route(
+            path = "/version",
+            name = "version.post",
+            requestMethods = {RequestMethod.POST})
+    @Route(
+            path = "/version",
+            name = "version.put",
+            requestMethods = {RequestMethod.PUT})
     @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "versionHandler")
     public static TextResponseContract version(
             ApplicationContract app, ResponseFactoryContract responseFactory) {
-        return responseFactory.createTextResponse(app.getVersion(), StatusCode.OK, new HeaderCollection());
+        return responseFactory.createTextResponse(
+                app.getVersion(), StatusCode.OK, new HeaderCollection());
     }
 
-    @Route(path = "/text", name = "text", requestMethods = {RequestMethod.GET})
+    @Route(
+            path = "/text",
+            name = "text",
+            requestMethods = {RequestMethod.GET})
     @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "textHandler")
     public static TextResponseContract text() {
         return new TextResponse("Hello World!", StatusCode.OK, new HeaderCollection());

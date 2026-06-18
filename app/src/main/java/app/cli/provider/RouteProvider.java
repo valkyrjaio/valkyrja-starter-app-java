@@ -15,21 +15,18 @@ import io.valkyrja.cli.interaction.output.contract.OutputContract;
 import io.valkyrja.cli.routing.data.contract.RouteContract;
 import io.valkyrja.cli.routing.provider.contract.CliRouteProviderContract;
 import io.valkyrja.container.manager.contract.ContainerContract;
-
 import java.util.List;
 import java.util.Map;
 
 public final class RouteProvider implements CliRouteProviderContract {
 
     public static OutputContract testCommandHandler(ContainerContract c, Map<String, Object> args) {
-        return c.getSingleton(TestCommand.class).run(
-                c.getSingleton(CliConfigContract.class));
+        return c.getSingleton(TestCommand.class).run(c.getSingleton(CliConfigContract.class));
     }
 
     @Override
     public List<Class<?>> getControllerClasses() {
-        return List.of(
-                TestCommand.class);
+        return List.of(TestCommand.class);
     }
 
     @Override

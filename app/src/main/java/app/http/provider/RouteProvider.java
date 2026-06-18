@@ -12,18 +12,16 @@ package app.http.provider;
 import app.http.controller.HomeController;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
 import io.valkyrja.container.manager.contract.ContainerContract;
-import io.valkyrja.http.message.enum_.StatusCode;
-import io.valkyrja.http.message.header.collection.HeaderCollection;
 import io.valkyrja.http.message.response.contract.ResponseContract;
 import io.valkyrja.http.message.response.factory.contract.ResponseFactoryContract;
 import io.valkyrja.http.routing.data.contract.RouteContract;
 import io.valkyrja.http.routing.provider.contract.HttpRouteProviderContract;
-
 import java.util.List;
 
 public final class RouteProvider implements HttpRouteProviderContract {
 
-    public static ResponseContract versionHandler(ContainerContract container, RouteContract route) {
+    public static ResponseContract versionHandler(
+            ContainerContract container, RouteContract route) {
         return HomeController.version(
                 container.getSingleton(ApplicationContract.class),
                 container.getSingleton(ResponseFactoryContract.class));
@@ -33,11 +31,13 @@ public final class RouteProvider implements HttpRouteProviderContract {
         return HomeController.text();
     }
 
-    public static ResponseContract welcomeHandler(ContainerContract container, RouteContract route) {
+    public static ResponseContract welcomeHandler(
+            ContainerContract container, RouteContract route) {
         return container.getSingleton(HomeController.class).welcome();
     }
 
-    public static ResponseContract welcomeCachedHandler(ContainerContract container, RouteContract route) {
+    public static ResponseContract welcomeCachedHandler(
+            ContainerContract container, RouteContract route) {
         return container.getSingleton(HomeController.class).welcomeCached();
     }
 

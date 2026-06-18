@@ -18,7 +18,6 @@ import io.valkyrja.container.manager.contract.ContainerContract;
 import io.valkyrja.container.provider.contract.ServiceProviderContract;
 import io.valkyrja.event.provider.contract.ListenerProviderContract;
 import io.valkyrja.http.routing.provider.contract.HttpRouteProviderContract;
-
 import java.util.List;
 
 public final class ComponentProvider implements ComponentProviderContract {
@@ -35,15 +34,12 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<ComponentProviderContract> getComponentProviders(ApplicationContract app) {
-        return List.of(
-                new CliWithHttpApplicationComponentProvider());
+        return List.of(new CliWithHttpApplicationComponentProvider());
     }
 
     @Override
     public List<ServiceProviderContract> getContainerProviders(ApplicationContract app) {
-        return List.of(
-                new DataServiceProvider(),
-                new ServiceProvider());
+        return List.of(new DataServiceProvider(), new ServiceProvider());
     }
 
     @Override
@@ -53,13 +49,11 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<CliRouteProviderContract> getCliProviders(ApplicationContract app) {
-        return List.of(
-                new app.cli.provider.RouteProvider());
+        return List.of(new app.cli.provider.RouteProvider());
     }
 
     @Override
     public List<HttpRouteProviderContract> getHttpProviders(ApplicationContract app) {
-        return List.of(
-                new RouteProvider());
+        return List.of(new RouteProvider());
     }
 }
