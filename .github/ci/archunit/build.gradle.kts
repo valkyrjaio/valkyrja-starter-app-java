@@ -37,7 +37,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.1.1")
+    implementation("io.valkyrja:valkyrja:26.1.2")
     compileOnly("org.jspecify:jspecify:1.0.0")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.4.2")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.0")
