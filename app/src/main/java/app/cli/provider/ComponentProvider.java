@@ -9,7 +9,7 @@
 
 package app.cli.provider;
 
-import app.http.provider.RouteProvider;
+import app.http.provider.HttpRouteProvider;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
 import io.valkyrja.application.provider.CliWithHttpApplicationComponentProvider;
 import io.valkyrja.application.provider.contract.ComponentProviderContract;
@@ -49,11 +49,11 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<CliRouteProviderContract> getCliProviders(ApplicationContract app) {
-        return List.of(new app.cli.provider.RouteProvider());
+        return List.of(new app.cli.provider.CliRouteProvider());
     }
 
     @Override
     public List<HttpRouteProviderContract> getHttpProviders(ApplicationContract app) {
-        return List.of(new RouteProvider());
+        return List.of(new HttpRouteProvider());
     }
 }

@@ -13,7 +13,7 @@ plugins {
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
-group = "com.example"
+group = "io.valkyrja"
 version = "1.0.0"
 
 repositories {

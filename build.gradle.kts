@@ -8,7 +8,7 @@
  */
 
 subprojects {
-    group = "com.example"
+    group = "io.valkyrja"
     version = "1.0.0"
 
     repositories {
@@ -18,7 +18,7 @@ subprojects {
 
     plugins.withId("java") {
         dependencies {
-            "implementation"("io.valkyrja:valkyrja:26.1.0")
+            "implementation"("io.valkyrja:valkyrja:26.1.1")
         }
 
         extensions.configure<JavaPluginExtension> {

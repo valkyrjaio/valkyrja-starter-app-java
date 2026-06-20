@@ -53,6 +53,6 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<HttpRouteProviderContract> getHttpProviders(ApplicationContract app) {
-        return List.of(new RouteProvider());
+        return List.of(new HttpRouteProvider());
     }
 }

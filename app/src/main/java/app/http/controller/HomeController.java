@@ -10,7 +10,7 @@
 package app.http.controller;
 
 import app.http.controller.abstract_.Controller;
-import app.http.provider.RouteProvider;
+import app.http.provider.HttpRouteProvider;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
 import io.valkyrja.http.message.enum_.RequestMethod;
 import io.valkyrja.http.message.enum_.StatusCode;
@@ -43,7 +43,7 @@ public class HomeController extends Controller {
             path = "/version",
             name = "version.put",
             requestMethods = {RequestMethod.PUT})
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "versionHandler")
+    @RouteHandler(handlerClass = HttpRouteProvider.class, handlerMethod = "versionHandler")
     public static TextResponseContract version(
             ApplicationContract app, ResponseFactoryContract responseFactory) {
         return responseFactory.createTextResponse(
@@ -54,31 +54,31 @@ public class HomeController extends Controller {
             path = "/text",
             name = "text",
             requestMethods = {RequestMethod.GET})
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "textHandler")
+    @RouteHandler(handlerClass = HttpRouteProvider.class, handlerMethod = "textHandler")
     public static TextResponseContract text() {
         return new TextResponse("Hello World!", StatusCode.OK, new HeaderCollection());
     }
 
     @Route(path = "/", name = "welcome")
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "welcomeHandler")
+    @RouteHandler(handlerClass = HttpRouteProvider.class, handlerMethod = "welcomeHandler")
     public ResponseContract welcome() {
         return new TextResponse("Welcome!", StatusCode.OK, new HeaderCollection());
     }
 
     @Route(path = "/cached", name = "welcome.cached")
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "welcomeCachedHandler")
+    @RouteHandler(handlerClass = HttpRouteProvider.class, handlerMethod = "welcomeCachedHandler")
     public ResponseContract welcomeCached() {
         return new TextResponse("Welcome (cached)!", StatusCode.OK, new HeaderCollection());
     }
 
     @Route(path = "/home", name = "home")
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "homeHandler")
+    @RouteHandler(handlerClass = HttpRouteProvider.class, handlerMethod = "homeHandler")
     public ResponseContract home() {
         return new TextResponse("Home!", StatusCode.OK, new HeaderCollection());
     }
 
     @Route(path = "/json", name = "json")
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "jsonHandler")
+    @RouteHandler(handlerClass = HttpRouteProvider.class, handlerMethod = "jsonHandler")
     public JsonResponseContract json() {
         return responseFactory.createJsonResponse(
                 Map.of("message", "Json response example"), StatusCode.OK, new HeaderCollection());
