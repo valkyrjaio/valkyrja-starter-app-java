@@ -18,7 +18,7 @@ import io.valkyrja.http.routing.data.contract.RouteContract;
 import io.valkyrja.http.routing.provider.contract.HttpRouteProviderContract;
 import java.util.List;
 
-public final class RouteProvider implements HttpRouteProviderContract {
+public final class HttpRouteProvider implements HttpRouteProviderContract {
 
     public static ResponseContract versionHandler(
             ContainerContract container, RouteContract route) {

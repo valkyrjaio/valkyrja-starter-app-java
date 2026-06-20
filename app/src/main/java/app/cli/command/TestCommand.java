@@ -10,7 +10,7 @@
 package app.cli.command;
 
 import app.cli.controller.abstract_.Controller;
-import app.cli.provider.RouteProvider;
+import app.cli.provider.CliRouteProvider;
 import io.valkyrja.application.data.contract.CliConfigContract;
 import io.valkyrja.cli.interaction.input.contract.InputContract;
 import io.valkyrja.cli.interaction.message.Answer;
@@ -33,7 +33,7 @@ public class TestCommand extends Controller {
     }
 
     @Route(name = "test", description = "Test command")
-    @RouteHandler(handlerClass = RouteProvider.class, handlerMethod = "testCommandHandler")
+    @RouteHandler(handlerClass = CliRouteProvider.class, handlerMethod = "testCommandHandler")
     public OutputContract run(CliConfigContract config) {
         return outputFactory
                 .createOutput()

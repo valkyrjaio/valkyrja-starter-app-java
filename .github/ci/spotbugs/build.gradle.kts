@@ -18,7 +18,7 @@ plugins {
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
-group = "com.example"
+group = "io.valkyrja"
 version = "1.0.0"
 
 java {
@@ -42,7 +42,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.1.0")
+    implementation("io.valkyrja:valkyrja:26.1.1")
     compileOnly("org.jspecify:jspecify:1.0.0")
 }
 

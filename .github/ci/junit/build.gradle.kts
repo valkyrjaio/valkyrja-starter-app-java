@@ -14,7 +14,7 @@ plugins {
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
-group = "com.example"
+group = "io.valkyrja"
 version = "1.0.0"
 
 java {
@@ -38,9 +38,11 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.1.0")
+    implementation("io.valkyrja:valkyrja:26.1.1")
     compileOnly("org.jspecify:jspecify:1.0.0")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.0")
+    testImplementation("org.mockito:mockito-core:5.14.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -66,6 +68,17 @@ tasks.test {
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
+    // Exclude the HTTP server entry points: app.http.App / app.http.CgiApp extend the framework's
+    // ExchangeHttp / ExchangeCgiHttp bootstraps, whose run() starts non-daemon server threads that
+    // cannot be exercised from a unit test without leaking the server / hanging the test JVM (the
+    // framework excludes ExchangeHttp / ExchangeCgiHttp for the same reason).
+    classDirectories.setFrom(
+            classDirectories.files.map { dir ->
+                fileTree(dir) {
+                    exclude("**/app/http/App.class")
+                    exclude("**/app/http/CgiApp.class")
+                }
+            })
     reports {
         xml.required.set(true)
         html.required.set(true)
