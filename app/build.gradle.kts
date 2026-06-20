@@ -28,3 +28,43 @@ tasks.jar {
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
+
+// Sindri — the AST-based code generator (Maven Central: io.valkyrja:sindri). It is a
+// *development tool only*: the application needs the generated App*Data files at runtime,
+// not sindri itself, so it lives in its own configuration and never touches the runtime or
+// compile classpath. This mirrors PHP's `require-dev` + `vendor/bin/sindri`.
+//
+// Run `./gradlew sindri` to regenerate every App*Data file, or `./gradlew sindriHttp` /
+// `./gradlew sindriCli` to regenerate a single config's data. Sindri parses the project's
+// source syntactically, so it only needs its own dependency closure on the classpath.
+val sindri by configurations.creating
+
+dependencies {
+    sindri("io.valkyrja:sindri:26.1.1")
+}
+
+val sindriConfigs =
+    mapOf(
+        "Http" to "src/main/java/app/http/Config.java",
+        "Cli" to "src/main/java/app/cli/Config.java",
+    )
+
+val sindriTasks =
+    sindriConfigs.map { (name, configPath) ->
+        tasks.register<JavaExec>("sindri$name") {
+            group = "sindri"
+            description = "Regenerate the $name App*Data files from $configPath via sindri"
+            classpath = sindri
+            mainClass.set("io.sindri.Sindri")
+            // Run from the module root so sindri resolves the config and writes the generated
+            // data relative to it (its CliConfig reads System.getProperty("user.dir")).
+            workingDir = projectDir
+            args("generate", configPath)
+        }
+    }
+
+tasks.register("sindri") {
+    group = "sindri"
+    description = "Regenerate all App*Data files (HTTP + CLI) via sindri"
+    dependsOn(sindriTasks)
+}
