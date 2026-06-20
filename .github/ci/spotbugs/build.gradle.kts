@@ -13,7 +13,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
     java
-    id("com.github.spotbugs") version "6.5.6"
+    id("com.github.spotbugs") version "6.5.8"
     id("com.github.ben-manes.versions") version "0.54.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
@@ -42,7 +42,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.1.1")
+    implementation("io.valkyrja:valkyrja:26.1.2")
     compileOnly("org.jspecify:jspecify:1.0.0")
 }
 
