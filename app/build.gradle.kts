@@ -35,12 +35,14 @@ tasks.jar {
 // compile classpath. This mirrors PHP's `require-dev` + `vendor/bin/sindri`.
 //
 // Run `./gradlew sindri` to regenerate every App*Data file, or `./gradlew sindriHttp` /
-// `./gradlew sindriCli` to regenerate a single config's data. Sindri parses the project's
-// source syntactically, so it only needs its own dependency closure on the classpath.
+// `./gradlew sindriCli` to regenerate a single config's data. Sindri parses source syntactically;
+// the valkyrja sources jar is added so it can also resolve framework providers (referenced from
+// the app's ComponentProvider) and collect their publishers into AppContainerData.
 val sindri by configurations.creating
 
 dependencies {
     sindri("io.valkyrja:sindri:26.1.1")
+    sindri("io.valkyrja:valkyrja:26.1.1:sources")
 }
 
 val sindriConfigs =
