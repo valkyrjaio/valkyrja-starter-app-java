@@ -40,7 +40,7 @@ sourceSets {
 dependencies {
     implementation("io.valkyrja:valkyrja:26.1.2")
     compileOnly("org.jspecify:jspecify:1.0.0")
-    testImplementation("org.junit.jupiter:junit-jupiter:6.1.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
