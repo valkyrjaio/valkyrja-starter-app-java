@@ -49,6 +49,7 @@ val sindriConfigs =
     mapOf(
         "Http" to "src/main/java/app/http/Config.java",
         "Cli" to "src/main/java/app/cli/Config.java",
+        "Grpc" to "src/main/java/app/grpc/Config.java",
     )
 
 val sindriTasks =
