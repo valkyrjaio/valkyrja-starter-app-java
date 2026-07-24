@@ -12,15 +12,15 @@ package app.grpc.controller;
 import io.valkyrja.container.manager.contract.ContainerContract;
 import io.valkyrja.grpc.message.response.ServiceResponse;
 import io.valkyrja.grpc.message.response.contract.ServiceResponseContract;
-import io.valkyrja.grpc.routing.attribute.GrpcMethod;
-import io.valkyrja.grpc.routing.attribute.GrpcService;
+import io.valkyrja.grpc.routing.attribute.Method;
+import io.valkyrja.grpc.routing.attribute.Service;
 import io.valkyrja.grpc.routing.data.contract.RouteContract;
 import java.nio.charset.StandardCharsets;
 
-@GrpcService(service = "app.Greeter")
+@Service(service = "app.Greeter")
 public class GreeterController {
 
-    @GrpcMethod(name = "SayHello")
+    @Method(name = "SayHello")
     public ServiceResponseContract sayHello(ContainerContract container, RouteContract route) {
         return ServiceResponse.ok("Hello!".getBytes(StandardCharsets.UTF_8));
     }
