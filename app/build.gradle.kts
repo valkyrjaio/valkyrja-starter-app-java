@@ -68,6 +68,6 @@ val sindriTasks =
 
 tasks.register("sindri") {
     group = "sindri"
-    description = "Regenerate all App*Data files (HTTP + CLI) via sindri"
+    description = "Regenerate all App*Data files (HTTP + CLI + gRPC) via sindri"
     dependsOn(sindriTasks)
 }
