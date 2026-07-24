@@ -68,15 +68,18 @@ tasks.test {
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
-    // Exclude the HTTP server entry points: app.http.App / app.http.CgiApp extend the framework's
+    // Exclude the server entry points. app.http.App / app.http.CgiApp extend the framework's
     // ExchangeHttp / ExchangeCgiHttp bootstraps, whose run() starts non-daemon server threads that
     // cannot be exercised from a unit test without leaking the server / hanging the test JVM (the
-    // framework excludes ExchangeHttp / ExchangeCgiHttp for the same reason).
+    // framework excludes ExchangeHttp / ExchangeCgiHttp for the same reason). app.grpc.App is a
+    // scaffold whose main() only bootstraps and returns — a transport adapter (Netty/Tomcat/Jetty)
+    // is attached separately to actually serve — so a full cache bootstrap is integration-level.
     classDirectories.setFrom(
             classDirectories.files.map { dir ->
                 fileTree(dir) {
                     exclude("**/app/http/App.class")
                     exclude("**/app/http/CgiApp.class")
+                    exclude("**/app/grpc/App.class")
                 }
             })
     reports {
