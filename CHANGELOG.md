@@ -1,6 +1,20 @@
 # Release Notes for 26.x
 
-## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.0.0...26.x)
+## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.1.0...26.x)
+
+## [v26.1.0](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.0.0...v26.1.0) - 2026-07-25
+
+* [GitHub] Update .github workflow refs to v26.9.6 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/30
+* [GitHub] Update .github workflow refs to v26.9.7 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/31
+* [Gradle] Add valkyrja sources jar to the sindri configuration by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/32
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/33
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/34
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/35
+* [Documentation] Add AGENTS.md agent guide by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/36
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/38
+* [GitHub] Update .github workflow refs to v26.10.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/39
+* [GitHub] Update .github workflow refs to v26.11.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/40
+* [Application] Upgrade to valkyrja/sindri 26.2.0, fix framework auto-updates, add sindri-junit CI by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/41
 
 ## [v26.0.0](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/26.0.0...v26.0.0) - 2026-06-20
 
