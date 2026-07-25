@@ -13,8 +13,8 @@ import app.cli.provider.ComponentProvider;
 import io.valkyrja.application.data.contract.CliConfigContract;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
 import io.valkyrja.application.provider.contract.ComponentProviderContract;
-import io.valkyrja.cli.middleware.contract.ExitedMiddlewareContract;
 import io.valkyrja.cli.middleware.contract.InputReceivedMiddlewareContract;
+import io.valkyrja.cli.middleware.contract.ProcessExitingMiddlewareContract;
 import io.valkyrja.cli.middleware.contract.RouteDispatchedMiddlewareContract;
 import io.valkyrja.cli.middleware.contract.RouteMatchedMiddlewareContract;
 import io.valkyrja.cli.middleware.contract.RouteNotMatchedMiddlewareContract;
@@ -39,7 +39,7 @@ public record Config(
         List<Class<? extends RouteNotMatchedMiddlewareContract>> routeNotMatchedMiddleware,
         List<Class<? extends RouteDispatchedMiddlewareContract>> routeDispatchedMiddleware,
         List<Class<? extends ThrowableCaughtMiddlewareContract>> throwableCaughtMiddleware,
-        List<Class<? extends ExitedMiddlewareContract>> exitedMiddleware,
+        List<Class<? extends ProcessExitingMiddlewareContract>> processExitingMiddleware,
         List<ComponentProviderContract> providers,
         List<Consumer<ApplicationContract>> callbacks)
         implements CliConfigContract {
