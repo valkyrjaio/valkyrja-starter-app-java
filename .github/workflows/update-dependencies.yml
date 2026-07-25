@@ -12,9 +12,11 @@ jobs:
     with:
       dependencies: |
         [
+          {"name": "Application", "directory": "."},
           {"name": "Spotless",    "directory": ".github/ci/spotless"},
           {"name": "ArchUnit",    "directory": ".github/ci/archunit"},
           {"name": "ErrorProne",  "directory": ".github/ci/errorprone"},
           {"name": "SpotBugs",   "directory": ".github/ci/spotbugs"},
-          {"name": "JUnit",      "directory": ".github/ci/junit"}
+          {"name": "JUnit",      "directory": ".github/ci/junit"},
+          {"name": "Sindri JUnit", "directory": ".github/ci/sindri-junit"}
         ]
