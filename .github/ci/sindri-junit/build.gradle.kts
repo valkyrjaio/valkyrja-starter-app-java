@@ -1,0 +1,122 @@
+/*
+ * This file is part of the Valkyrja Framework package.
+ *
+ * (c) Melech Mizrachi <melechmizrachi@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+
+plugins {
+    java
+    jacoco
+    id("com.github.ben-manes.versions") version "0.54.0"
+    id("se.patrikerdes.use-latest-versions") version "0.2.19"
+}
+
+group = "io.valkyrja"
+version = "1.0.0"
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+// Sindri (the AST code generator) plus the framework sources jar it needs to resolve providers.
+// Unlike the sibling `junit` build — which copies the empty `*.example.java` stubs and tests the
+// application as it compiles *without* generation — this build runs Sindri to produce the real
+// App*Data classes and tests the application as it actually runs in production. It is intentionally
+// a separate, isolated CI environment so stubbed and generated results never mingle, and it doubles
+// as a way to test Sindri itself against a real application before a framework release.
+val sindri by configurations.creating
+
+sourceSets {
+    main {
+        java {
+            srcDirs("../../../app/src/main/java")
+            exclude("**/*.example.java")
+        }
+    }
+}
+
+dependencies {
+    implementation("io.valkyrja:valkyrja:26.2.0")
+    compileOnly("org.jspecify:jspecify:1.0.0")
+    sindri("io.valkyrja:sindri:26.2.0")
+    sindri("io.valkyrja:valkyrja:26.2.0:sources")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
+    testImplementation("org.mockito:mockito-core:5.23.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+val appDir = file("../../../app")
+
+val sindriConfigs =
+    mapOf(
+        "Http" to "src/main/java/app/http/Config.java",
+        "Cli" to "src/main/java/app/cli/Config.java",
+    )
+
+val sindriTasks =
+    sindriConfigs.map { (name, configPath) ->
+        tasks.register<JavaExec>("sindri$name") {
+            group = "sindri"
+            description = "Generate the $name App*Data files via sindri for the generated-class tests"
+            classpath = sindri
+            mainClass.set("io.sindri.Sindri")
+            // Sindri reads System.getProperty("user.dir") and writes the data relative to it.
+            workingDir = appDir
+            args("generate", configPath)
+        }
+    }
+
+tasks.named<JavaCompile>("compileJava") {
+    dependsOn(sindriTasks)
+}
+
+fun isNonStable(version: String): Boolean {
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.uppercase().contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    val isStable = stableKeyword || regex.matches(version)
+    return isStable.not()
+}
+
+tasks.named<DependencyUpdatesTask>("dependencyUpdates") {
+    rejectVersionIf { isNonStable(candidate.version) }
+}
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    // Exclude the HTTP server entry points: app.http.App / app.http.CgiApp extend the framework's
+    // ExchangeHttp / ExchangeCgiHttp bootstraps, whose run() starts non-daemon server threads that
+    // cannot be exercised from a unit test without leaking the server / hanging the test JVM.
+    classDirectories.setFrom(
+            classDirectories.files.map { dir ->
+                fileTree(dir) {
+                    exclude("**/app/http/App.class")
+                    exclude("**/app/http/CgiApp.class")
+                }
+            })
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+}
