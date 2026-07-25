@@ -16,11 +16,10 @@ import io.valkyrja.cli.routing.data.contract.RouteContract;
 import io.valkyrja.cli.routing.provider.contract.CliRouteProviderContract;
 import io.valkyrja.container.manager.contract.ContainerContract;
 import java.util.List;
-import java.util.Map;
 
 public final class CliRouteProvider implements CliRouteProviderContract {
 
-    public static OutputContract testCommandHandler(ContainerContract c, Map<String, Object> args) {
+    public static OutputContract testCommandHandler(ContainerContract c, RouteContract route) {
         return c.getSingleton(TestCommand.class).run(c.getSingleton(CliConfigContract.class));
     }
 

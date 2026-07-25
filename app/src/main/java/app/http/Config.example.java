@@ -18,7 +18,7 @@ import io.valkyrja.http.middleware.contract.RouteDispatchedMiddlewareContract;
 import io.valkyrja.http.middleware.contract.RouteMatchedMiddlewareContract;
 import io.valkyrja.http.middleware.contract.RouteNotMatchedMiddlewareContract;
 import io.valkyrja.http.middleware.contract.SendingResponseMiddlewareContract;
-import io.valkyrja.http.middleware.contract.TerminatedMiddlewareContract;
+import io.valkyrja.http.middleware.contract.ResponseSentMiddlewareContract;
 import io.valkyrja.http.middleware.contract.ThrowableCaughtMiddlewareContract;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public record Config(
     List<Class<? extends RouteDispatchedMiddlewareContract>> routeDispatchedMiddleware,
     List<Class<? extends ThrowableCaughtMiddlewareContract>> throwableCaughtMiddleware,
     List<Class<? extends SendingResponseMiddlewareContract>> sendingResponseMiddleware,
-    List<Class<? extends TerminatedMiddlewareContract>> terminatedMiddleware,
+    List<Class<? extends ResponseSentMiddlewareContract>> responseSentMiddleware,
     List<ComponentProviderContract> providers,
     List<Consumer<ApplicationContract>> callbacks
 ) implements HttpConfigContract {

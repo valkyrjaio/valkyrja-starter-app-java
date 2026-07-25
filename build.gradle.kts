@@ -7,6 +7,17 @@
  * file that was distributed with this source code.
  */
 
+plugins {
+    id("com.github.ben-manes.versions") version "0.54.0"
+    id("se.patrikerdes.use-latest-versions") version "0.2.19"
+}
+
+fun isNonStable(version: String): Boolean {
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.uppercase().contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    return (stableKeyword || regex.matches(version)).not()
+}
+
 subprojects {
     group = "io.valkyrja"
     version = "1.0.0"
@@ -16,9 +27,16 @@ subprojects {
         mavenCentral()
     }
 
+    apply(plugin = "com.github.ben-manes.versions")
+    apply(plugin = "se.patrikerdes.use-latest-versions")
+
+    tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask> {
+        rejectVersionIf { isNonStable(candidate.version) }
+    }
+
     plugins.withId("java") {
         dependencies {
-            "implementation"("io.valkyrja:valkyrja:26.1.1")
+            "implementation"("io.valkyrja:valkyrja:26.2.0")
         }
 
         extensions.configure<JavaPluginExtension> {

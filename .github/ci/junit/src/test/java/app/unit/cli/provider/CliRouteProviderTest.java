@@ -24,7 +24,6 @@ import io.valkyrja.container.manager.Container;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 /** Test class. */
@@ -46,6 +45,6 @@ final class CliRouteProviderTest {
                 new TestCommand(mock(InputContract.class), new OutputFactory()));
         container.setSingleton(CliConfigContract.class, mock(CliConfigContract.class));
 
-        assertNotNull(CliRouteProvider.testCommandHandler(container, Map.of()));
+        assertNotNull(CliRouteProvider.testCommandHandler(container, mock(RouteContract.class)));
     }
 }
