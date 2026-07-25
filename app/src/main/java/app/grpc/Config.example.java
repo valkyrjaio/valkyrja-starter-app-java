@@ -18,7 +18,7 @@ import io.valkyrja.grpc.middleware.contract.RouteDispatchedMiddlewareContract;
 import io.valkyrja.grpc.middleware.contract.RouteMatchedMiddlewareContract;
 import io.valkyrja.grpc.middleware.contract.RouteNotMatchedMiddlewareContract;
 import io.valkyrja.grpc.middleware.contract.SendingResponseMiddlewareContract;
-import io.valkyrja.grpc.middleware.contract.TerminatedMiddlewareContract;
+import io.valkyrja.grpc.middleware.contract.ResponseSentMiddlewareContract;
 import io.valkyrja.grpc.middleware.contract.ThrowableCaughtMiddlewareContract;
 import java.util.List;
 import java.util.function.Consumer;
@@ -40,7 +40,7 @@ public record Config(
         List<Class<? extends RouteDispatchedMiddlewareContract>> routeDispatchedMiddleware,
         List<Class<? extends ThrowableCaughtMiddlewareContract>> throwableCaughtMiddleware,
         List<Class<? extends SendingResponseMiddlewareContract>> sendingResponseMiddleware,
-        List<Class<? extends TerminatedMiddlewareContract>> terminatedMiddleware,
+        List<Class<? extends ResponseSentMiddlewareContract>> responseSentMiddleware,
         List<ComponentProviderContract> providers,
         List<Consumer<ApplicationContract>> callbacks)
         implements GrpcConfigContract {
