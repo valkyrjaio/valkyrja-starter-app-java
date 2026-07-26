@@ -42,7 +42,7 @@ val sindri by configurations.creating
 
 dependencies {
     sindri("io.valkyrja:sindri:26.2.0")
-    sindri("io.valkyrja:valkyrja:26.2.0:sources")
+    sindri("io.valkyrja:valkyrja:26.3.0:sources")
 }
 
 val sindriConfigs =
