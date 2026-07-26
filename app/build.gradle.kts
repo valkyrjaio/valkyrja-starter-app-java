@@ -41,14 +41,15 @@ tasks.jar {
 val sindri by configurations.creating
 
 dependencies {
-    sindri("io.valkyrja:sindri:26.2.0")
-    sindri("io.valkyrja:valkyrja:26.2.0:sources")
+    sindri("io.valkyrja:sindri:26.3.0")
+    sindri("io.valkyrja:valkyrja:26.3.0:sources")
 }
 
 val sindriConfigs =
     mapOf(
         "Http" to "src/main/java/app/http/Config.java",
         "Cli" to "src/main/java/app/cli/Config.java",
+        "Grpc" to "src/main/java/app/grpc/Config.java",
     )
 
 val sindriTasks =
@@ -67,6 +68,6 @@ val sindriTasks =
 
 tasks.register("sindri") {
     group = "sindri"
-    description = "Regenerate all App*Data files (HTTP + CLI) via sindri"
+    description = "Regenerate all App*Data files (HTTP + CLI + gRPC) via sindri"
     dependsOn(sindriTasks)
 }

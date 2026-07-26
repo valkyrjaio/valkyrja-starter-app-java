@@ -7,10 +7,10 @@
  * file that was distributed with this source code.
  */
 
-package app.http.provider;
+package app.grpc.provider;
 
 import io.valkyrja.application.kernel.contract.ApplicationContract;
-import io.valkyrja.application.provider.HttpApplicationComponentProvider;
+import io.valkyrja.application.provider.GrpcApplicationComponentProvider;
 import io.valkyrja.application.provider.contract.ComponentProviderContract;
 import io.valkyrja.cli.routing.provider.contract.CliRouteProviderContract;
 import io.valkyrja.container.manager.contract.ContainerContract;
@@ -34,12 +34,12 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<ComponentProviderContract> getComponentProviders(ApplicationContract app) {
-        return List.of(new HttpApplicationComponentProvider());
+        return List.of(new GrpcApplicationComponentProvider());
     }
 
     @Override
     public List<ServiceProviderContract> getContainerProviders(ApplicationContract app) {
-        return List.of(new DataServiceProvider(), new ServiceProvider());
+        return List.of(new DataServiceProvider());
     }
 
     @Override
@@ -54,11 +54,11 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<HttpRouteProviderContract> getHttpProviders(ApplicationContract app) {
-        return List.of(new HttpRouteProvider());
+        return List.of();
     }
 
     @Override
     public List<GrpcRouteProviderContract> getGrpcProviders(ApplicationContract app) {
-        return List.of();
+        return List.of(new GrpcRouteProvider());
     }
 }
