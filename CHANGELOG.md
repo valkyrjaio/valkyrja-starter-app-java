@@ -1,6 +1,11 @@
 # Release Notes for 26.x
 
-## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.2.0...26.x)
+## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.3.0...26.x)
+
+## [v26.3.0](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.2.0...v26.3.0) - 2026-07-26
+
+* [Grpc] Add gRPC application vertical by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/37
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/42
 
 ## [v26.2.0](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.1.0...v26.2.0) - 2026-07-25
 
