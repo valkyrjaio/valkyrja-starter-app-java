@@ -50,7 +50,7 @@ sourceSets {
 dependencies {
     implementation("io.valkyrja:valkyrja:26.3.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
-    sindri("io.valkyrja:sindri:26.2.0")
+    sindri("io.valkyrja:sindri:26.3.0")
     sindri("io.valkyrja:valkyrja:26.3.0:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testImplementation("org.mockito:mockito-core:5.23.0")
@@ -64,6 +64,7 @@ val sindriConfigs =
     mapOf(
         "Http" to "src/main/java/app/http/Config.java",
         "Cli" to "src/main/java/app/cli/Config.java",
+        "Grpc" to "src/main/java/app/grpc/Config.java",
     )
 
 val sindriTasks =
