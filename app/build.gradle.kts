@@ -44,7 +44,7 @@ dependencies {
     sindri("io.valkyrja:sindri:26.3.0")
     sindri("io.valkyrja:valkyrja:26.3.0:sources")
 
-    // Runtime SDKs for the worker entry points (app.jetty.App / app.netty.App / app.tomcat.App).
+    // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares these compileOnly — the "optional adapter" philosophy — so each
     // consumer pulls only the runtime it actually uses. The JDK-backed app.http.App (ExchangeHttp)
     // needs none of them.

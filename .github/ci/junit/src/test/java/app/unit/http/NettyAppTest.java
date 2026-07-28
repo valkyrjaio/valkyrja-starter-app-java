@@ -7,22 +7,23 @@
  * file that was distributed with this source code.
  */
 
-package app.unit.netty;
+package app.unit.http;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import app.http.NettyApp;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test the {@link app.netty.App} entry point.
+ * Test the {@link NettyApp} entry point.
  *
  * <p>The entry's {@code main} blocks on the Netty server loop, so it cannot run in-process; the live
  * request path is covered end to end by {@code app.functional.entry.NettyAppTest}.
  */
-final class AppTest {
+final class NettyAppTest {
 
     @Test
     void isInstantiable() {
-        assertNotNull(new app.netty.App());
+        assertNotNull(new NettyApp());
     }
 }

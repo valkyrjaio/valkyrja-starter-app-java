@@ -32,7 +32,7 @@ final class NettyAppTest {
                 "Netty is not on the classpath.");
 
         int port = RuntimeServerFixture.freePort();
-        Channel channel = app.netty.App.server(RuntimeServerFixture.configOnPort(port));
+        Channel channel = app.http.NettyApp.server(RuntimeServerFixture.configOnPort(port));
 
         try {
             RuntimeServerFixture.awaitPort(port);

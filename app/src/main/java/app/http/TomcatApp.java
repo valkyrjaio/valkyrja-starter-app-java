@@ -7,9 +7,8 @@
  * file that was distributed with this source code.
  */
 
-package app.tomcat;
+package app.http;
 
-import app.http.Config;
 import io.valkyrja.application.entry.tomcat.TomcatHttp;
 import org.apache.catalina.LifecycleException;
 
@@ -20,7 +19,7 @@ import org.apache.catalina.LifecycleException;
  * runtime. The HTTP configuration is shared with the other runtimes — only the server that drives
  * it differs.
  */
-public class App extends TomcatHttp {
+public class TomcatApp extends TomcatHttp {
 
     public static void main(String[] args) throws LifecycleException {
         run(new Config());

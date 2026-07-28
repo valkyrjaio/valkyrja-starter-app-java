@@ -89,9 +89,9 @@ tasks.jacocoTestReport {
                     // The jetty/netty/tomcat entries are the same shape: a main() that blocks on
                     // its runtime's server loop. Their live request path is covered end to end by
                     // app.functional.entry.*AppTest, which starts each real server on a free port.
-                    exclude("**/app/jetty/App.class")
-                    exclude("**/app/netty/App.class")
-                    exclude("**/app/tomcat/App.class")
+                    exclude("**/app/http/JettyApp.class")
+                    exclude("**/app/http/NettyApp.class")
+                    exclude("**/app/http/TomcatApp.class")
                 }
             })
     reports {

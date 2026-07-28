@@ -7,22 +7,23 @@
  * file that was distributed with this source code.
  */
 
-package app.unit.jetty;
+package app.unit.http;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import app.http.TomcatApp;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test the {@link app.jetty.App} entry point.
+ * Test the {@link TomcatApp} entry point.
  *
- * <p>The entry's {@code main} blocks on the Jetty server loop, so it cannot run in-process; the live
- * request path is covered end to end by {@code app.functional.entry.JettyAppTest}.
+ * <p>The entry's {@code main} blocks on the Tomcat server loop, so it cannot run in-process; the live
+ * request path is covered end to end by {@code app.functional.entry.TomcatAppTest}.
  */
-final class AppTest {
+final class TomcatAppTest {
 
     @Test
     void isInstantiable() {
-        assertNotNull(new app.jetty.App());
+        assertNotNull(new TomcatApp());
     }
 }

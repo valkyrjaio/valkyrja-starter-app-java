@@ -32,7 +32,7 @@ final class TomcatAppTest {
                 "Tomcat is not on the classpath.");
 
         int port = RuntimeServerFixture.freePort();
-        Tomcat tomcat = app.tomcat.App.server(RuntimeServerFixture.configOnPort(port));
+        Tomcat tomcat = app.http.TomcatApp.server(RuntimeServerFixture.configOnPort(port));
 
         try {
             RuntimeServerFixture.awaitPort(port);

@@ -7,20 +7,19 @@
  * file that was distributed with this source code.
  */
 
-package app.jetty;
+package app.http;
 
-import app.http.Config;
-import io.valkyrja.application.entry.jetty.JettyHttp;
+import io.valkyrja.application.entry.netty.NettyHttp;
 
 /**
- * Jetty entry point.
+ * Netty entry point.
  *
- * <p>Bootstraps the application once, then serves every request from the Jetty worker runtime. The
+ * <p>Bootstraps the application once, then serves every request from the Netty worker runtime. The
  * HTTP configuration is shared with the other runtimes — only the server that drives it differs.
  */
-public class App extends JettyHttp {
+public class NettyApp extends NettyHttp {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws InterruptedException {
         run(new Config());
     }
 }
