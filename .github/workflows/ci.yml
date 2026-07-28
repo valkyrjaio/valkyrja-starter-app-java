@@ -38,7 +38,7 @@ jobs:
         files:
           - '.github/ci/spotless/**'
           - '.github/workflows/ci.yml'
-          - 'src/**/*.java'
+          - 'app/src/**/*.java'
     secrets: inherit
 
   archunit:
@@ -54,7 +54,7 @@ jobs:
         files:
           - '.github/ci/archunit/**'
           - '.github/workflows/ci.yml'
-          - 'src/**/*.java'
+          - 'app/src/**/*.java'
     secrets: inherit
 
   errorprone:
@@ -70,7 +70,7 @@ jobs:
         files:
           - '.github/ci/errorprone/**'
           - '.github/workflows/ci.yml'
-          - 'src/**/*.java'
+          - 'app/src/**/*.java'
     secrets: inherit
 
   spotbugs:
@@ -86,7 +86,7 @@ jobs:
         files:
           - '.github/ci/spotbugs/**'
           - '.github/workflows/ci.yml'
-          - 'src/**/*.java'
+          - 'app/src/**/*.java'
     secrets: inherit
 
   junit:
@@ -102,7 +102,7 @@ jobs:
         files:
           - '.github/ci/junit/**'
           - '.github/workflows/ci.yml'
-          - 'src/**/*.java'
+          - 'app/src/**/*.java'
     secrets: inherit
 
   # Unlike `junit` (which copies the empty *.example.java stubs), this job runs Sindri to generate
