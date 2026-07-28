@@ -41,8 +41,8 @@ tasks.jar {
 val sindri by configurations.creating
 
 dependencies {
-    sindri("io.valkyrja:sindri:26.3.0")
-    sindri("io.valkyrja:valkyrja:26.3.0:sources")
+    sindri("io.valkyrja:sindri:26.4.0")
+    sindri("io.valkyrja:valkyrja:26.4.0:sources")
 }
 
 val sindriConfigs =
