@@ -38,7 +38,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.3.0")
+    implementation("io.valkyrja:valkyrja:26.4.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the

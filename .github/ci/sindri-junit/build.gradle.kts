@@ -48,7 +48,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.3.0")
+    implementation("io.valkyrja:valkyrja:26.4.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
@@ -56,8 +56,8 @@ dependencies {
     implementation("org.eclipse.jetty:jetty-server:12.1.11")
     implementation("io.netty:netty-codec-http:4.2.16.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
-    sindri("io.valkyrja:sindri:26.3.0")
-    sindri("io.valkyrja:valkyrja:26.3.0:sources")
+    sindri("io.valkyrja:sindri:26.4.0")
+    sindri("io.valkyrja:valkyrja:26.4.0:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
