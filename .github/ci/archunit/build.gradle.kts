@@ -38,6 +38,12 @@ sourceSets {
 
 dependencies {
     implementation("io.valkyrja:valkyrja:26.3.0")
+
+    // Runtime SDKs for the worker entry points (app.jetty.App / app.netty.App / app.tomcat.App).
+    // The framework declares them compileOnly, so the app supplies them.
+    implementation("org.eclipse.jetty:jetty-server:12.1.11")
+    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
     compileOnly("org.jspecify:jspecify:1.0.0")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.4.2")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")

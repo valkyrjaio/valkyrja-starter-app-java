@@ -50,6 +50,12 @@ sourceSets {
 dependencies {
     implementation("io.valkyrja:valkyrja:26.3.0")
     compileOnly("org.jspecify:jspecify:1.0.0")
+
+    // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
+    // app supplies them; the end-to-end tests start each of these servers for real.
+    implementation("org.eclipse.jetty:jetty-server:12.1.11")
+    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
     sindri("io.valkyrja:sindri:26.3.0")
     sindri("io.valkyrja:valkyrja:26.3.0:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
@@ -114,6 +120,13 @@ tasks.jacocoTestReport {
                 fileTree(dir) {
                     exclude("**/app/http/App.class")
                     exclude("**/app/http/CgiApp.class")
+                    // The jetty/netty/tomcat entries are the same shape: a main() that blocks on
+                    // its runtime's server loop. Their live request path is covered end to end by
+                    // app.functional.entry.*AppTest, which starts each real server on a free port.
+                    exclude("**/app/jetty/App.class")
+                    exclude("**/app/netty/App.class")
+                    exclude("**/app/tomcat/App.class")
+                    exclude("**/app/grpc/App.class")
                 }
             })
     reports {

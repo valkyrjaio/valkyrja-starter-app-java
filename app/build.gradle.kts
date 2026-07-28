@@ -43,6 +43,14 @@ val sindri by configurations.creating
 dependencies {
     sindri("io.valkyrja:sindri:26.3.0")
     sindri("io.valkyrja:valkyrja:26.3.0:sources")
+
+    // Runtime SDKs for the worker entry points (app.jetty.App / app.netty.App / app.tomcat.App).
+    // The framework declares these compileOnly — the "optional adapter" philosophy — so each
+    // consumer pulls only the runtime it actually uses. The JDK-backed app.http.App (ExchangeHttp)
+    // needs none of them.
+    implementation("org.eclipse.jetty:jetty-server:12.1.11")
+    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 }
 
 val sindriConfigs =
