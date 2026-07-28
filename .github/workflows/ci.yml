@@ -110,7 +110,7 @@ jobs:
   # so stubbed and generated results never mingle, and a way to exercise Sindri against a real app.
   sindri-junit:
     name: Sindri JUnit
-    uses: valkyrjaio/.github/.github/workflows/_junit-java.yml@716065aae4466b95f0f80c9c5a5e2a92de620af6
+    uses: valkyrjaio/.github/.github/workflows/_java-junit.yml@716065aae4466b95f0f80c9c5a5e2a92de620af6
     with:
       ci-directory: .github/ci/sindri-junit
       paths: |
