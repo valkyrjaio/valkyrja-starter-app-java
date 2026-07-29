@@ -12,7 +12,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.54.0"
+    id("com.github.ben-manes.versions") version "0.56.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -61,7 +61,7 @@ dependencies {
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
     // app supplies them; the end-to-end tests start each of these servers for real.
     implementation("org.eclipse.jetty:jetty-server:12.1.11")
-    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("io.netty:netty-codec-http:5.0.0.Alpha2")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
