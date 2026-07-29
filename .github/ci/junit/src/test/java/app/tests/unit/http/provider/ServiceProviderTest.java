@@ -25,7 +25,7 @@ final class ServiceProviderTest {
 
     @Test
     void publishersExposesHomeController() {
-        assertEquals(1, new ServiceProvider().publishers().size());
+        assertEquals(2, new ServiceProvider().publishers().size());
     }
 
     @Test

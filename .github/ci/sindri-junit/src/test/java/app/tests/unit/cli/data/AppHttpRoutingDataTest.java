@@ -10,6 +10,7 @@
 package app.tests.unit.cli.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -24,7 +25,8 @@ final class AppHttpRoutingDataTest {
         var data = new AppHttpRoutingData();
 
         var routes = data.routes();
-        assertEquals(8, routes.size());
+        // Eight routes on HomeController plus the eighteen routing permutations.
+        assertEquals(26, routes.size());
         assertTrue(routes.containsKey("welcome"));
         routes.values().forEach(route -> assertNotNull(route.get()));
 
@@ -34,7 +36,8 @@ final class AppHttpRoutingDataTest {
         assertTrue(paths.containsKey("PUT"));
         assertTrue(paths.containsKey("HEAD"));
 
-        assertTrue(data.dynamicPaths().isEmpty());
-        assertTrue(data.regexes().isEmpty());
+        // The routing permutations contribute dynamic paths and their regexes.
+        assertFalse(data.dynamicPaths().isEmpty());
+        assertFalse(data.regexes().isEmpty());
     }
 }
