@@ -70,6 +70,42 @@ public final class RuntimeServerFixture {
     }
 
     /**
+     * Copy the application's gRPC configuration onto a specific port.
+     *
+     * <p>Built here for the same reason as {@link #configOnPort(int)}: Sindri reads the
+     * configuration's no-argument constructor to extract the component providers, so the shipped
+     * configuration must not grow another constructor. Passing port {@code 0} lets the runtime pick
+     * an ephemeral port, so concurrent runs never collide.
+     *
+     * @param port the port to bind
+     * @return the gRPC configuration bound to that port
+     */
+    public static app.grpc.Config grpcConfigOnPort(int port) {
+        app.grpc.Config config = new app.grpc.Config();
+
+        return new app.grpc.Config(
+                config.namespace(),
+                config.dir(),
+                config.version(),
+                config.environment(),
+                config.debugMode(),
+                config.timezone(),
+                config.key(),
+                config.dataPath(),
+                config.dataNamespace(),
+                port,
+                config.callReceivedMiddleware(),
+                config.routeMatchedMiddleware(),
+                config.routeNotMatchedMiddleware(),
+                config.routeDispatchedMiddleware(),
+                config.throwableCaughtMiddleware(),
+                config.sendingResponseMiddleware(),
+                config.responseSentMiddleware(),
+                config.providers(),
+                config.callbacks());
+    }
+
+    /**
      * Reserve a free localhost TCP port.
      *
      * <p>The socket is closed before the port is returned, so the server under test can bind it.
