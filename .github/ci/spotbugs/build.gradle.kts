@@ -42,6 +42,11 @@ sourceSets {
 }
 
 dependencies {
+    // The SpotBugs tool version is declared here rather than via `spotbugs { toolVersion }` so it
+    // is a real dependency notation. useLatestVersions only rewrites dependency notations, so a
+    // toolVersion string is reported as outdated every run but never updated — it drifts forever.
+    spotbugs("com.github.spotbugs:spotbugs:4.10.3")
+
     implementation("io.valkyrja:valkyrja:26.4.0")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
@@ -61,7 +66,6 @@ dependencies {
 }
 
 spotbugs {
-    toolVersion.set("4.9.8")
     excludeFilter.set(layout.projectDirectory.file("spotbugs-exclude.xml"))
     effort.set(Effort.MAX)
     reportLevel.set(Confidence.LOW)
