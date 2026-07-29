@@ -18,6 +18,17 @@ fun isNonStable(version: String): Boolean {
     return (stableKeyword || regex.matches(version)).not()
 }
 
+// allprojects, not subprojects: the root project's own dependencyUpdates task reports every
+// project's dependencies, not just the root's, and useLatestVersions rewrites the version strings
+// it finds — including the ones in the standalone .github/ci/* builds. Filtering only the
+// subprojects leaves that aggregate report unfiltered, which is how io.netty:netty-codec-http was
+// once bumped from 4.2.16.Final to the 2015-era 5.0.0.Alpha2 prerelease.
+allprojects {
+    tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask> {
+        rejectVersionIf { isNonStable(candidate.version) }
+    }
+}
+
 subprojects {
     group = "io.valkyrja"
     version = "1.0.0"
@@ -29,10 +40,6 @@ subprojects {
 
     apply(plugin = "com.github.ben-manes.versions")
     apply(plugin = "se.patrikerdes.use-latest-versions")
-
-    tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask> {
-        rejectVersionIf { isNonStable(candidate.version) }
-    }
 
     plugins.withId("java") {
         dependencies {
