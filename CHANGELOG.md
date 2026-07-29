@@ -1,6 +1,21 @@
 # Release Notes for 26.x
 
-## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.3.0...26.x)
+## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.0...26.x)
+
+## [v26.4.0](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.3.0...v26.4.0) - 2026-07-28
+
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/43
+* [Git] Ignore Gradle build artifacts in sindri-junit ci tool by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/44
+* [Grpc] Sort imports in gRPC Config by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/46
+* [GitHub] Update .github workflow refs to v26.11.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/45
+* [GitHub] Fix Java source path filters in CI workflow by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/47
+* [GitHub] Use the Java release workflow for releases by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/49
+* [GitHub] Update .github workflow refs to v26.12.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/50
+* [Http][Grpc] Add jetty, netty, and tomcat entry points with runtime tests by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/48
+* [CI] Declare the SpotBugs and JaCoCo tool versions as dependencies by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/52
+* [Gradle] Reject unstable versions in the root dependencyUpdates report by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/54
+* [CI] Align the test trees and bring them under Spotless, ErrorProne, SpotBugs, and ArchUnit by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/56
+* [Gradle] Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/57
 
 ## [v26.3.0](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.2.0...v26.3.0) - 2026-07-26
 
