@@ -39,6 +39,14 @@ sourceSets {
             exclude("**/*.example.java")
         }
     }
+    // The JUnit build's tests are the app's other Java source tree; analyze them too. The
+    // sindri-junit tests are deliberately not included: they assert on classes produced by a
+    // codegen step, so compiling them here would mean replicating that pipeline.
+    test {
+        java {
+            srcDirs("../junit/src/test/java")
+        }
+    }
 }
 
 dependencies {
@@ -63,6 +71,20 @@ dependencies {
     implementation("io.grpc:grpc-netty-shaded:1.83.0")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
     compileOnly("org.jspecify:jspecify:1.0.0")
+
+    // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
+    testImplementation("io.valkyrja:valkyrja:26.4.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
+    testImplementation("org.mockito:mockito-core:5.23.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
+    testImplementation("org.jspecify:jspecify:1.0.0")
+    testImplementation("io.grpc:grpc-api:1.83.0")
+    testImplementation("io.grpc:grpc-servlet-jakarta:1.83.0")
+    testImplementation("io.grpc:grpc-netty-shaded:1.83.0")
+    testImplementation("org.eclipse.jetty:jetty-server:12.1.11")
+    testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
+    testImplementation("io.netty:netty-codec-http:4.2.16.Final")
+    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 }
 
 spotbugs {
@@ -88,4 +110,16 @@ tasks.withType<JavaCompile> {
 
 tasks.withType<SpotBugsTask>().configureEach {
     reports.create("html")
+}
+
+// Analyzing the tests is the point — running them is the JUnit build's job, so `check` still runs
+// spotbugsTest without executing the suite twice.
+tasks.test {
+    enabled = false
+}
+
+// The test tree gets its own filter so `app/src` stays strict — the JUnit idioms excluded for the
+// tests can never loosen the app's own analysis.
+tasks.spotbugsTest {
+    excludeFilter.set(layout.projectDirectory.file("spotbugs-exclude-test.xml"))
 }
