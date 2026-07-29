@@ -30,7 +30,7 @@ final class CliRouteProviderTest {
     void exposesControllerAndEmptyRoutes() {
         var provider = new CliRouteProvider();
 
-        assertEquals(1, provider.getControllerClasses().size());
+        assertEquals(2, provider.getControllerClasses().size());
         assertTrue(provider.getRoutes().isEmpty());
     }
 
@@ -42,5 +42,79 @@ final class CliRouteProviderTest {
         container.setSingleton(CliConfigContract.class, mock(CliConfigContract.class));
 
         assertNotNull(CliRouteProvider.testCommandHandler(container, mock(RouteContract.class)));
+    }
+
+    @Test
+    void permutationHandlersBindTheirRoutesParameters() {
+        var container = new io.valkyrja.container.manager.Container();
+        container.setSingleton(
+                app.cli.command.RoutingPermutationsCommand.class,
+                new app.cli.command.RoutingPermutationsCommand(
+                        mock(io.valkyrja.cli.interaction.input.contract.InputContract.class),
+                        new io.valkyrja.cli.interaction.output.factory.OutputFactory()));
+
+        var route = route(java.util.Map.of("value", "foo"), java.util.Map.of("tag", "x"));
+
+        assertNotNull(CliRouteProvider.permutationsArgumentRequiredHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsArgumentOptionalHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsArgumentArrayHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsArgumentRequiredArrayHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionNoneHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionDefaultHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionArrayHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionRequiredHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionRequiredNoneHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionRequiredArrayHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionShortHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionValidValuesHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionDefaultValueHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsMixedHandler(container, route));
+    }
+
+    /** Build a route whose arguments and options resolve to the given name/value pairs. */
+    private RouteContract route(
+            java.util.Map<String, String> arguments, java.util.Map<String, String> options) {
+        var route = mock(RouteContract.class);
+
+        org.mockito.Mockito.when(route.getArgument(org.mockito.ArgumentMatchers.anyString()))
+                .thenAnswer(
+                        invocation ->
+                                new io.valkyrja.cli.routing.data.ArgumentParameter(
+                                        invocation.getArgument(0),
+                                        "description",
+                                        io.valkyrja.cli.routing.enum_.ArgumentMode.OPTIONAL,
+                                        io.valkyrja.cli.routing.enum_.ArgumentValueMode.DEFAULT,
+                                        arguments.containsKey(invocation.getArgument(0))
+                                                ? java.util.List.of(
+                                                        new io.valkyrja.cli.interaction.argument
+                                                                .Argument(
+                                                                arguments.get(
+                                                                        invocation.getArgument(0))))
+                                                : java.util.List.of()));
+
+        org.mockito.Mockito.when(route.getOption(org.mockito.ArgumentMatchers.anyString()))
+                .thenAnswer(
+                        invocation ->
+                                new io.valkyrja.cli.routing.data.OptionParameter(
+                                        invocation.getArgument(0),
+                                        "description",
+                                        "",
+                                        "fallback",
+                                        java.util.List.of(),
+                                        java.util.List.of(),
+                                        options.containsKey(invocation.getArgument(0))
+                                                ? java.util.List.of(
+                                                        new io.valkyrja.cli.interaction.option
+                                                                .Option(
+                                                                invocation.getArgument(0),
+                                                                options.get(
+                                                                        invocation.getArgument(0)),
+                                                                io.valkyrja.cli.interaction.enum_
+                                                                        .OptionType.LONG))
+                                                : java.util.List.of(),
+                                        io.valkyrja.cli.routing.enum_.OptionMode.OPTIONAL,
+                                        io.valkyrja.cli.routing.enum_.OptionValueMode.DEFAULT));
+
+        return route;
     }
 }

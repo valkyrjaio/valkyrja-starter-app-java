@@ -9,6 +9,7 @@
 
 package app.cli.provider;
 
+import app.cli.command.RoutingPermutationsCommand;
 import app.cli.command.TestCommand;
 import io.valkyrja.cli.interaction.input.contract.InputContract;
 import io.valkyrja.cli.interaction.output.factory.contract.OutputFactoryContract;
@@ -21,13 +22,25 @@ public final class ServiceProvider implements ServiceProviderContract {
 
     @Override
     public Map<Class<?>, Consumer<ContainerContract>> publishers() {
-        return Map.of(TestCommand.class, ServiceProvider::publishTestCommand);
+        return Map.of(
+                TestCommand.class,
+                ServiceProvider::publishTestCommand,
+                RoutingPermutationsCommand.class,
+                ServiceProvider::publishRoutingPermutationsCommand);
     }
 
     public static void publishTestCommand(ContainerContract container) {
         container.setSingleton(
                 TestCommand.class,
                 new TestCommand(
+                        container.getSingleton(InputContract.class),
+                        container.getSingleton(OutputFactoryContract.class)));
+    }
+
+    public static void publishRoutingPermutationsCommand(ContainerContract container) {
+        container.setSingleton(
+                RoutingPermutationsCommand.class,
+                new RoutingPermutationsCommand(
                         container.getSingleton(InputContract.class),
                         container.getSingleton(OutputFactoryContract.class)));
     }
