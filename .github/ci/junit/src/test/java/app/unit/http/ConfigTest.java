@@ -38,4 +38,10 @@ final class ConfigTest {
     void registersComponentProvider() {
         assertInstanceOf(ComponentProvider.class, new Config().providers().get(0));
     }
+
+    @Test
+    void defaultsToPort8080() {
+        assertEquals(8080, new Config().port());
+    }
+
 }

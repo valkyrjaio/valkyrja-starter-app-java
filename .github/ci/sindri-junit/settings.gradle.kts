@@ -12,3 +12,11 @@ plugins {
 }
 
 rootProject.name = "sindri-junit"
+
+// The framework is resolved from Maven Central (io.valkyrja:valkyrja). To run the end-to-end tests
+// against a local framework checkout instead, opt in with -PlocalFramework (e.g. ./gradlew test
+// -PlocalFramework from this directory). Off by default, so CI always tests against the published
+// release. Mirrors the root settings.gradle.kts.
+if (providers.gradleProperty("localFramework").isPresent) {
+    includeBuild("../../../../valkyrja")
+}

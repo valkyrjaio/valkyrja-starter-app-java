@@ -9,3 +9,6 @@ Thumbs.db
 gradlew
 gradlew.bat
 build
+
+# Runtime storage — the framework's default file logger writes dated logs here.
+storage/

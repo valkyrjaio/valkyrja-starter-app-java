@@ -9,7 +9,7 @@
 
 package app.http;
 
-import io.valkyrja.application.entry.ExchangeHttp;
+import io.valkyrja.application.entry.exchange.ExchangeHttp;
 import java.io.IOException;
 
 public class App extends ExchangeHttp {
