@@ -39,6 +39,8 @@ jobs:
           - '.github/ci/spotless/**'
           - '.github/workflows/ci.yml'
           - 'app/src/**/*.java'
+          - '.github/ci/junit/src/test/**/*.java'
+          - '.github/ci/sindri-junit/src/test/**/*.java'
     secrets: inherit
 
   archunit:
@@ -55,6 +57,7 @@ jobs:
           - '.github/ci/archunit/**'
           - '.github/workflows/ci.yml'
           - 'app/src/**/*.java'
+          - '.github/ci/junit/src/test/**/*.java'
     secrets: inherit
 
   errorprone:
@@ -71,6 +74,7 @@ jobs:
           - '.github/ci/errorprone/**'
           - '.github/workflows/ci.yml'
           - 'app/src/**/*.java'
+          - '.github/ci/junit/src/test/**/*.java'
     secrets: inherit
 
   spotbugs:
@@ -87,6 +91,7 @@ jobs:
           - '.github/ci/spotbugs/**'
           - '.github/workflows/ci.yml'
           - 'app/src/**/*.java'
+          - '.github/ci/junit/src/test/**/*.java'
     secrets: inherit
 
   junit:

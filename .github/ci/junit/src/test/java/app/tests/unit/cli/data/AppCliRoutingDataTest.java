@@ -1,0 +1,24 @@
+/*
+ * This file is part of the Valkyrja Framework package.
+ *
+ * (c) Melech Mizrachi <melechmizrachi@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+package app.tests.unit.cli.data;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import app.cli.data.AppCliRoutingData;
+import org.junit.jupiter.api.Test;
+
+/** Test the {@link AppCliRoutingData}. */
+final class AppCliRoutingDataTest {
+
+    @Test
+    void exposesEmptyRoutes() {
+        assertTrue(new AppCliRoutingData().routes().isEmpty());
+    }
+}
