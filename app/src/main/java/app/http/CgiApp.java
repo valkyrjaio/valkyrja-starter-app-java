@@ -18,8 +18,7 @@ import java.io.IOException;
  * <p>Mimics CGI semantics: each incoming exchange gets a full bootstrap — clean container isolation
  * at the cost of re-bootstrapping overhead per request. Prefer {@link App} (backed by {@link
  * io.valkyrja.application.entry.exchange.ExchangeHttp}) for production, which bootstraps once and
- * uses an
- * isolated child container per request.
+ * uses an isolated child container per request.
  */
 public class CgiApp extends ExchangeCgiHttp {
 
