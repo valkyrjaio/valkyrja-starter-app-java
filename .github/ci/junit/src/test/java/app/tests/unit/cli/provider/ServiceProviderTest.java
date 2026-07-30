@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
+import app.cli.command.RoutingPermutationsCommand;
 import app.cli.command.TestCommand;
 import app.cli.provider.ServiceProvider;
 import io.valkyrja.cli.interaction.input.contract.InputContract;
@@ -38,5 +39,16 @@ final class ServiceProviderTest {
         ServiceProvider.publishTestCommand(container);
 
         assertNotNull(container.getSingleton(TestCommand.class));
+    }
+
+    @Test
+    void publishRoutingPermutationsCommandBindsCommand() {
+        var container = new Container();
+        container.setSingleton(InputContract.class, mock(InputContract.class));
+        container.setSingleton(OutputFactoryContract.class, new OutputFactory());
+
+        ServiceProvider.publishRoutingPermutationsCommand(container);
+
+        assertNotNull(container.getSingleton(RoutingPermutationsCommand.class));
     }
 }

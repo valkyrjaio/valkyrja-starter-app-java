@@ -71,6 +71,30 @@ final class CliRouteProviderTest {
         assertNotNull(CliRouteProvider.permutationsMixedHandler(container, route));
     }
 
+    @Test
+    void permutationHandlersReadProvidedOptionsRatherThanFallingBack() {
+        var container = new io.valkyrja.container.manager.Container();
+        container.setSingleton(
+                app.cli.command.RoutingPermutationsCommand.class,
+                new app.cli.command.RoutingPermutationsCommand(
+                        mock(io.valkyrja.cli.interaction.input.contract.InputContract.class),
+                        new io.valkyrja.cli.interaction.output.factory.OutputFactory()));
+
+        // The route above binds none of these options, so every handler takes its "absent" path:
+        // hasOption() returns false and the default-value handler falls back to the declared
+        // default. Binding them here takes the other side of both branches.
+        var route =
+                route(
+                        java.util.Map.of("name", "bob"),
+                        java.util.Map.of(
+                                "value", "given", "flag", "on", "marker", "on", "tag", "x"));
+
+        assertNotNull(CliRouteProvider.permutationsOptionNoneHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionRequiredNoneHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionShortHandler(container, route));
+        assertNotNull(CliRouteProvider.permutationsOptionDefaultValueHandler(container, route));
+    }
+
     /** Build a route whose arguments and options resolve to the given name/value pairs. */
     private RouteContract route(
             java.util.Map<String, String> arguments, java.util.Map<String, String> options) {

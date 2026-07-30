@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 import app.http.controller.HomeController;
+import app.http.controller.RoutingPermutationsController;
 import app.http.provider.ServiceProvider;
 import io.valkyrja.container.manager.Container;
 import io.valkyrja.http.message.request.contract.ServerRequestContract;
@@ -37,5 +38,16 @@ final class ServiceProviderTest {
         ServiceProvider.publishHomeController(container);
 
         assertNotNull(container.getSingleton(HomeController.class));
+    }
+
+    @Test
+    void publishRoutingPermutationsControllerBindsController() {
+        var container = new Container();
+        container.setSingleton(ServerRequestContract.class, mock(ServerRequestContract.class));
+        container.setSingleton(ResponseFactoryContract.class, mock(ResponseFactoryContract.class));
+
+        ServiceProvider.publishRoutingPermutationsController(container);
+
+        assertNotNull(container.getSingleton(RoutingPermutationsController.class));
     }
 }

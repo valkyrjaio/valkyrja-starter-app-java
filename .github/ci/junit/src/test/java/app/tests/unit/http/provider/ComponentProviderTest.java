@@ -32,6 +32,7 @@ final class ComponentProviderTest {
         assertNotNull(provider.getEventProviders(app));
         assertNotNull(provider.getCliProviders(app));
         assertNotNull(provider.getHttpProviders(app));
+        assertNotNull(provider.getGrpcProviders(app));
     }
 
     @Test
