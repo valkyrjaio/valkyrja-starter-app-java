@@ -87,33 +87,78 @@ tasks.test {
     finalizedBy(tasks.jacocoTestReport)
 }
 
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
     // Exclude the server entry points. app.http.App / app.http.CgiApp extend the framework's
     // ExchangeHttp / ExchangeCgiHttp bootstraps, whose run() starts non-daemon server threads that
     // cannot be exercised from a unit test without leaking the server / hanging the test JVM (the
     // framework excludes ExchangeHttp / ExchangeCgiHttp for the same reason). app.grpc.App is a
     // scaffold whose main() only bootstraps and returns — a transport adapter (Netty/Tomcat/Jetty)
     // is attached separately to actually serve — so a full cache bootstrap is integration-level.
-    classDirectories.setFrom(
-            classDirectories.files.map { dir ->
-                fileTree(dir) {
-                    exclude("**/app/http/App.class")
-                    exclude("**/app/http/CgiApp.class")
-                    exclude("**/app/grpc/App.class")
-                    exclude("**/app/grpc/JettyApp.class")
-                    exclude("**/app/grpc/NettyApp.class")
-                    exclude("**/app/grpc/TomcatApp.class")
                     // The jetty/netty/tomcat entries are the same shape: a main() that blocks on
                     // its runtime's server loop. Their live request path is covered end to end by
                     // app.tests.functional.entry.*AppTest, which starts each real server on a free port.
-                    exclude("**/app/http/JettyApp.class")
-                    exclude("**/app/http/NettyApp.class")
-                    exclude("**/app/http/TomcatApp.class")
-                }
+// Shared by jacocoTestReport and jacocoTestCoverageVerification so the gate measures exactly
+// what the report shows — scoping only one of them silently lets the other disagree.
+val coverageExclusions = listOf(
+        "**/app/http/App.class",
+        "**/app/http/CgiApp.class",
+        "**/app/grpc/App.class",
+        "**/app/grpc/JettyApp.class",
+        "**/app/grpc/NettyApp.class",
+        "**/app/grpc/TomcatApp.class",
+        "**/app/http/JettyApp.class",
+        "**/app/http/NettyApp.class",
+        "**/app/http/TomcatApp.class",
+)
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    classDirectories.setFrom(
+            classDirectories.files.map { dir ->
+                fileTree(dir) { exclude(coverageExclusions) }
             })
     reports {
         xml.required.set(true)
         html.required.set(true)
+    }
+}
+
+// The floor. Coverage was reported here and enforced nowhere: `junit` ran `test` finalized by
+// `jacocoTestReport`, so the report was generated and then nothing asserted anything about it.
+tasks.jacocoTestCoverageVerification {
+    dependsOn(tasks.test)
+    classDirectories.setFrom(
+            classDirectories.files.map { dir ->
+                fileTree(dir) { exclude(coverageExclusions) }
+            })
+    violationRules {
+        rule {
+            limit {
+                counter = "LINE"
+                value = "COVEREDRATIO"
+                minimum = "1.00".toBigDecimal()
+            }
+            limit {
+                counter = "BRANCH"
+                value = "COVEREDRATIO"
+                minimum = "1.00".toBigDecimal()
+            }
+        }
+        // Per class as well as per bundle. A bundle-wide rule is not enough: a large,
+        // well-covered codebase absorbs one entirely untested new class almost without moving,
+        // so the aggregate stays high while the new file is at zero. A class-level rule fails
+        // on that file itself.
+        rule {
+            element = "CLASS"
+            limit {
+                counter = "LINE"
+                value = "COVEREDRATIO"
+                minimum = "1.00".toBigDecimal()
+            }
+            limit {
+                counter = "BRANCH"
+                value = "COVEREDRATIO"
+                minimum = "1.00".toBigDecimal()
+            }
+        }
     }
 }
