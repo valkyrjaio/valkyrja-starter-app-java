@@ -6,5 +6,16 @@ run-name: Create new version for upcoming major release
 
 jobs:
   create:
-    uses: valkyrjaio/.github/.github/workflows/_create-version-branch.yml@e3e801bdc0d696988d6fc331b6cf0d806b653abd
+    uses: valkyrjaio/.github/.github/workflows/_java-create-version-branch.yml@e3e801bdc0d696988d6fc331b6cf0d806b653abd
     secrets: inherit
+    with:
+      dependencies: |
+        [
+          {"name": "Application",  "directory": "."},
+          {"name": "Spotless",     "directory": ".github/ci/spotless"},
+          {"name": "ArchUnit",     "directory": ".github/ci/archunit"},
+          {"name": "ErrorProne",   "directory": ".github/ci/errorprone"},
+          {"name": "SpotBugs",     "directory": ".github/ci/spotbugs"},
+          {"name": "JUnit",        "directory": ".github/ci/junit"},
+          {"name": "Sindri JUnit", "directory": ".github/ci/sindri-junit"}
+        ]
