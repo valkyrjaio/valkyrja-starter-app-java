@@ -25,7 +25,7 @@ jobs:
   trailing-newline-check:
     name: Trailing Newline Check
     if: github.event_name == 'pull_request'
-    uses: valkyrjaio/.github/.github/workflows/_trailing-newline-check.yml@1438ce03055b4ad8010e8dfd863aa85d07f122ad
+    uses: valkyrjaio/.github/.github/workflows/_trailing-newline-check.yml@6bfd75231afaebd9e9681fe6b2ad2b9a083a6371
     permissions:
       pull-requests: write
       contents: read
@@ -33,7 +33,7 @@ jobs:
 
   sindri-junit:
     name: Sindri JUnit
-    uses: valkyrjaio/.github/.github/workflows/_java-junit.yml@1438ce03055b4ad8010e8dfd863aa85d07f122ad
+    uses: valkyrjaio/.github/.github/workflows/_java-junit.yml@6bfd75231afaebd9e9681fe6b2ad2b9a083a6371
     with:
       ci-directory: .github/ci/sindri-junit
       # This job compiles the whole app but only asserts the generated App*Data classes, so its
@@ -54,7 +54,7 @@ jobs:
   # as `CI / Tools / <Tool> / …`.
   tools:
     name: Tools
-    uses: valkyrjaio/.github/.github/workflows/_java-ci-tools.yml@1438ce03055b4ad8010e8dfd863aa85d07f122ad
+    uses: valkyrjaio/.github/.github/workflows/_java-ci-tools.yml@6bfd75231afaebd9e9681fe6b2ad2b9a083a6371
     with:
       copy-example-sources: true
       source-paths: |
