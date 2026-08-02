@@ -33,12 +33,14 @@ tasks.named<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask>("
 
 spotless {
     java {
-        // The JUnit build's tests are the app's other Java source tree; format them too. Scoped to
-        // `src/test/java` so any non-source .java under `src/test/resources` is never rewritten.
+        // The JUnit, sindri-JUnit and ArchUnit builds hold the app's other Java source trees;
+        // format them too. Each is scoped to `src/test/java` so any non-source .java under
+        // `src/test/resources` is never rewritten.
         target(
             "app/src/**/*.java",
             ".github/ci/junit/src/test/java/**/*.java",
             ".github/ci/sindri-junit/src/test/java/**/*.java",
+            ".github/ci/archunit/src/test/java/**/*.java",
         )
         targetExclude("**/*.example.java")
         googleJavaFormat("1.27.0").aosp()
