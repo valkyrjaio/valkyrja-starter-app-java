@@ -57,4 +57,26 @@ spotless {
 """
         )
     }
+
+    // The two entry point scripts have no extension, so the `**/*.java` target above cannot
+    // reach them, and no other tool in the gate reads them. Their header went unchecked for
+    // that reason. This format holds them to the same header, in shell comment syntax.
+    // Warning: the license step replaces everything before the delimiter. The delimiter
+    // therefore matches the first line that starts with neither a comment mark nor a blank,
+    // and `skipLinesMatching` holds the shebang on line 1, which the header follows.
+    format("shell") {
+        target("app/bin/cli", "app/public/index")
+        licenseHeader(
+            """
+# This file is part of the Valkyrja Application package.
+#
+# (c) Melech Mizrachi <melechmizrachi@gmail.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+""",
+            "(?=[^#\\s])"
+        ).skipLinesMatching("^#!.*\$")
+    }
 }

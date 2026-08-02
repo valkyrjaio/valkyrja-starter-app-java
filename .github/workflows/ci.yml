@@ -61,10 +61,15 @@ jobs:
     uses: valkyrjaio/.github/.github/workflows/_java-ci-tools.yml@699060a99b1eb0c346bc66dc33e99410f5de55d7
     with:
       copy-example-sources: true
+      # The two entry point scripts are Spotless targets, so they are sources for the filter
+      # too. Without them an edit to either script reaches no tool and the header goes
+      # unchecked, which is the gap that let them carry the wrong package identifier.
       source-paths: |
         app/src/**/*.java
         .github/ci/junit/src/test/**/*.java
         .github/ci/sindri-junit/src/test/**/*.java
+        app/bin/cli
+        app/public/index
     secrets:
       VALKYRJA_GHA_APP_ID: ${{ secrets.VALKYRJA_GHA_APP_ID }}
       VALKYRJA_GHA_PRIVATE_KEY: ${{ secrets.VALKYRJA_GHA_PRIVATE_KEY }}
