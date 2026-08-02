@@ -1,6 +1,28 @@
 # Release Notes for 26.x
 
-## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.2...26.x)
+## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.3...26.x)
+
+## [v26.4.3](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.2...v26.4.3) - 2026-08-02
+
+* [Workflow] ci: Update .github workflow refs to v26.18.2 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/86
+* [Dependency] build: Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/85
+* [Workflow] ci: Expose the allow diverged input on the rebase to master workflow by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/87
+* [Git] chore: Ignore the .worktrees directory by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/91
+* [Workflow] ci: Remove the unused check outdated dependencies workflow by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/92
+* [Workflow] ci: Update .github workflow refs to v26.19.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/93
+* [Workflow] ci: Pass each reusable workflow the secrets it declares by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/94
+* [CopyrightHeader] style: Name the application package in the license header by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/95
+* [Spotless] style: Format the ArchUnit test tree by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/96
+* [Markdown] style: Normalize the formatting of every document by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/97
+* [Workflow] ci: Update .github workflow refs to v26.20.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/99
+* [CopyrightHeader] fix: Name the correct package in the entry point headers by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/100
+* [CopyrightHeader] ci: Check the header of the extensionless entry points by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/101
+* [Workflow] ci: Add the Markdown formatting check by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/98
+* [Copyright] style: Update header to add copyright year, remove email, and name the license by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/102
+* [Dependency] build: Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/103
+* [Provider] test: Assert every ComponentProviderContract method by [@MelechMizrachi](https://github.com/MelechMizrachi) in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/104
+* [Workflow] ci: Update .github workflow refs to v26.21.0 by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/105
+* [Dependency] build: Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/106
 
 ## [v26.4.2](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.1...v26.4.2) - 2026-08-01
 
