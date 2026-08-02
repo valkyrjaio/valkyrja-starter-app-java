@@ -176,25 +176,14 @@ The Valkyrja framework and this starter are open-source software licensed
 under the [MIT license][MIT license url]. See [`LICENSE.md`](./LICENSE.md).
 
 [Valkyrja url]: https://valkyrja.io
-
 [framework url]: https://github.com/valkyrjaio/valkyrja-java
-
 [tomcat url]: https://github.com/valkyrjaio/tomcat
-
 [jetty url]: https://github.com/valkyrjaio/jetty
-
 [netty url]: https://github.com/valkyrjaio/netty
-
 [docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/README.md
-
 [http docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/http
-
 [cli docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/cli
-
 [container docs url]: https://github.com/valkyrjaio/valkyrja-java/tree/26.x/src/main/java/io/valkyrja/container
-
 [contributing url]: https://github.com/valkyrjaio/.github/blob/master/CONTRIBUTING.md
-
 [vocabulary url]: https://github.com/valkyrjaio/.github/blob/master/VOCABULARY.md
-
 [MIT license url]: https://opensource.org/licenses/MIT
