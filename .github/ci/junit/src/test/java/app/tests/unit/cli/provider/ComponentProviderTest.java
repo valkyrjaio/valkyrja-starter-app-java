@@ -8,12 +8,20 @@
 
 package app.tests.unit.cli.provider;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import app.cli.provider.CliRouteProvider;
 import app.cli.provider.ComponentProvider;
+import app.cli.provider.DataServiceProvider;
+import app.cli.provider.ServiceProvider;
+import app.http.provider.HttpRouteProvider;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
+import io.valkyrja.application.provider.CliWithHttpApplicationComponentProvider;
 import io.valkyrja.container.data.contract.ContainerDataContract;
 import io.valkyrja.container.manager.Container;
 import org.junit.jupiter.api.Test;
@@ -25,13 +33,46 @@ final class ComponentProviderTest {
     private final ApplicationContract app = mock(ApplicationContract.class);
 
     @Test
-    void exposesAllProviderLists() {
-        assertNotNull(provider.getComponentProviders(app));
-        assertNotNull(provider.getContainerProviders(app));
-        assertNotNull(provider.getEventProviders(app));
-        assertNotNull(provider.getCliProviders(app));
-        assertNotNull(provider.getHttpProviders(app));
-        assertNotNull(provider.getGrpcProviders(app));
+    void getComponentProvidersReturnsTheComponentProviders() {
+        var providers = provider.getComponentProviders(app);
+
+        assertEquals(1, providers.size());
+        assertInstanceOf(CliWithHttpApplicationComponentProvider.class, providers.get(0));
+    }
+
+    @Test
+    void getContainerProvidersReturnsTheServiceProviders() {
+        var providers = provider.getContainerProviders(app);
+
+        assertEquals(2, providers.size());
+        assertInstanceOf(DataServiceProvider.class, providers.get(0));
+        assertInstanceOf(ServiceProvider.class, providers.get(1));
+    }
+
+    @Test
+    void getEventProvidersIsEmpty() {
+        assertTrue(provider.getEventProviders(app).isEmpty());
+    }
+
+    @Test
+    void getCliProvidersReturnsTheCliRouteProviders() {
+        var providers = provider.getCliProviders(app);
+
+        assertEquals(1, providers.size());
+        assertInstanceOf(CliRouteProvider.class, providers.get(0));
+    }
+
+    @Test
+    void getHttpProvidersReturnsTheHttpRouteProviders() {
+        var providers = provider.getHttpProviders(app);
+
+        assertEquals(1, providers.size());
+        assertInstanceOf(HttpRouteProvider.class, providers.get(0));
+    }
+
+    @Test
+    void getGrpcProvidersIsEmpty() {
+        assertTrue(provider.getGrpcProviders(app).isEmpty());
     }
 
     @Test
