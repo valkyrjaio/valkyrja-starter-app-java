@@ -8,12 +8,18 @@
 
 package app.tests.unit.grpc.provider;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import app.grpc.provider.ComponentProvider;
+import app.grpc.provider.DataServiceProvider;
+import app.grpc.provider.GrpcRouteProvider;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
+import io.valkyrja.application.provider.GrpcApplicationComponentProvider;
 import io.valkyrja.container.data.contract.ContainerDataContract;
 import io.valkyrja.container.manager.Container;
 import org.junit.jupiter.api.Test;
@@ -25,13 +31,42 @@ final class ComponentProviderTest {
     private final ApplicationContract app = mock(ApplicationContract.class);
 
     @Test
-    void exposesAllProviderLists() {
-        assertNotNull(provider.getComponentProviders(app));
-        assertNotNull(provider.getContainerProviders(app));
-        assertNotNull(provider.getEventProviders(app));
-        assertNotNull(provider.getCliProviders(app));
-        assertNotNull(provider.getHttpProviders(app));
-        assertNotNull(provider.getGrpcProviders(app));
+    void getComponentProvidersReturnsTheComponentProviders() {
+        var providers = provider.getComponentProviders(app);
+
+        assertEquals(1, providers.size());
+        assertInstanceOf(GrpcApplicationComponentProvider.class, providers.get(0));
+    }
+
+    @Test
+    void getContainerProvidersReturnsTheServiceProviders() {
+        var providers = provider.getContainerProviders(app);
+
+        assertEquals(1, providers.size());
+        assertInstanceOf(DataServiceProvider.class, providers.get(0));
+    }
+
+    @Test
+    void getEventProvidersIsEmpty() {
+        assertTrue(provider.getEventProviders(app).isEmpty());
+    }
+
+    @Test
+    void getCliProvidersIsEmpty() {
+        assertTrue(provider.getCliProviders(app).isEmpty());
+    }
+
+    @Test
+    void getHttpProvidersIsEmpty() {
+        assertTrue(provider.getHttpProviders(app).isEmpty());
+    }
+
+    @Test
+    void getGrpcProvidersReturnsTheGrpcRouteProviders() {
+        var providers = provider.getGrpcProviders(app);
+
+        assertEquals(1, providers.size());
+        assertInstanceOf(GrpcRouteProvider.class, providers.get(0));
     }
 
     @Test
