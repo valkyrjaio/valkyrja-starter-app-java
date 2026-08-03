@@ -6,6 +6,18 @@
  * Released under the MIT License. See LICENSE.md for details.
  */
 
+import io.valkyrja.spotless.CopyrightHeader
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("io.valkyrja:ci-spotless-java:26.0.0")
+    }
+}
+
 plugins {
     id("com.diffplug.spotless") version "8.9.0"
     id("com.github.ben-manes.versions") version "0.58.0"
@@ -43,17 +55,7 @@ spotless {
         )
         targetExclude("**/*.example.java")
         googleJavaFormat("1.27.0").aosp()
-        licenseHeader(
-            """/*
- * This file is part of the Valkyrja Application package.
- *
- * Copyright (c) 2016-present Melech Mizrachi
- *
- * Released under the MIT License. See LICENSE.md for details.
- */
-
-"""
-        )
+        licenseHeader(CopyrightHeader.block("Valkyrja Application"))
     }
 
     // The two entry point scripts have no extension, so the `**/*.java` target above cannot
@@ -64,16 +66,6 @@ spotless {
     // and `skipLinesMatching` holds the shebang on line 1, which the header follows.
     format("shell") {
         target("app/bin/cli", "app/public/index")
-        licenseHeader(
-            """
-# This file is part of the Valkyrja Application package.
-#
-# Copyright (c) 2016-present Melech Mizrachi
-#
-# Released under the MIT License. See LICENSE.md for details.
-
-""",
-            "(?=[^#\\s])"
-        ).skipLinesMatching("^#!.*\$")
+        licenseHeader(CopyrightHeader.shell("Valkyrja Application"), "(?=[^#\\s])").skipLinesMatching("^#!.*\$")
     }
 }
