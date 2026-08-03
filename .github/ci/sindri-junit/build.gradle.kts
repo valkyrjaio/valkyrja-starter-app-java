@@ -11,7 +11,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.58.0"
+    id("com.github.ben-manes.versions") version "0.59.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
