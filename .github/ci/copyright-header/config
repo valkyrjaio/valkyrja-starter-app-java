@@ -1,0 +1,37 @@
+#
+# This file is part of the Valkyrja Application package.
+#
+# Copyright (c) 2016-present Melech Mizrachi
+#
+# Released under the MIT License. See LICENSE.md for details.
+#
+
+# The package this repository is. COPYRIGHT_HEADER.md in the .github repository
+# maps every repository to its own identifier.
+IDENTIFIER='Valkyrja Application'
+
+# The files that carry no copyright header. Every other tracked file must carry
+# it, so a new file fails the check until a person adds the header or adds the
+# file here.
+EXCLUDED=(
+    # A document, a lock file, a workflow, and a configuration file hold no
+    # program code.
+    '*.md'
+    '*.json'
+    '*.xml'
+    '*.yml'
+    '*.properties'
+    '*.gitattributes'
+    '*.editorconfig'
+    '*.gitignore'
+
+    # A stub that the application copies into place on first run. Spotless
+    # excludes the same files, because the copy becomes the developer's file.
+    '*.example.java'
+
+    # An entry point that Spotless already holds to the header. Its
+    # `format("shell")` block targets both files and writes a five-line form,
+    # which is not the seven-line form this check compares against.
+    'app/bin/cli'
+    'app/public/index'
+)
