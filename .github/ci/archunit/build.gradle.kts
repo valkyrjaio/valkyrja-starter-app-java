@@ -62,7 +62,7 @@ dependencies {
     implementation("io.grpc:grpc-netty-shaded:1.83.1")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
     compileOnly("org.jspecify:jspecify:1.0.1")
-    testImplementation("com.tngtech.archunit:archunit-junit5:1.4.2")
+    testImplementation("com.tngtech.archunit:archunit-junit5:1.5.0")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
