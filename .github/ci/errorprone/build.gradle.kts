@@ -48,12 +48,12 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.6.1")
+    implementation("io.valkyrja:valkyrja:26.7.0")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
-    implementation("org.eclipse.jetty:jetty-server:12.1.11")
-    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.eclipse.jetty:jetty-server:12.1.12")
+    implementation("io.netty:netty-codec-http:4.2.17.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
@@ -62,13 +62,13 @@ dependencies {
     implementation("io.grpc:grpc-api:1.83.1")
     implementation("io.grpc:grpc-servlet-jakarta:1.83.1")
     implementation("io.grpc:grpc-netty-shaded:1.83.1")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
     compileOnly("org.jspecify:jspecify:1.0.1")
     errorprone("com.google.errorprone:error_prone_core:2.50.0")
     errorprone("com.uber.nullaway:nullaway:0.13.8")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
-    testImplementation("io.valkyrja:valkyrja:26.6.1")
+    testImplementation("io.valkyrja:valkyrja:26.7.0")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
@@ -76,9 +76,9 @@ dependencies {
     testImplementation("io.grpc:grpc-api:1.83.1")
     testImplementation("io.grpc:grpc-servlet-jakarta:1.83.1")
     testImplementation("io.grpc:grpc-netty-shaded:1.83.1")
-    testImplementation("org.eclipse.jetty:jetty-server:12.1.11")
-    testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
-    testImplementation("io.netty:netty-codec-http:4.2.16.Final")
+    testImplementation("org.eclipse.jetty:jetty-server:12.1.12")
+    testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
+    testImplementation("io.netty:netty-codec-http:4.2.17.Final")
     testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 }
 

@@ -46,12 +46,12 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.6.1")
+    implementation("io.valkyrja:valkyrja:26.7.0")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
-    implementation("org.eclipse.jetty:jetty-server:12.1.11")
-    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.eclipse.jetty:jetty-server:12.1.12")
+    implementation("io.netty:netty-codec-http:4.2.17.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
@@ -60,7 +60,7 @@ dependencies {
     implementation("io.grpc:grpc-api:1.83.1")
     implementation("io.grpc:grpc-servlet-jakarta:1.83.1")
     implementation("io.grpc:grpc-netty-shaded:1.83.1")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
     compileOnly("org.jspecify:jspecify:1.0.1")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.5.0")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
@@ -68,7 +68,7 @@ dependencies {
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here. The app's
     // own dependencies are repeated because a custom source set does not inherit `main`'s.
-    "testTreeImplementation"("io.valkyrja:valkyrja:26.6.1")
+    "testTreeImplementation"("io.valkyrja:valkyrja:26.7.0")
     "testTreeImplementation"("org.junit.jupiter:junit-jupiter:6.1.2")
     "testTreeImplementation"("org.mockito:mockito-core:5.23.0")
     "testTreeImplementation"("org.mockito:mockito-junit-jupiter:5.23.0")
@@ -76,9 +76,9 @@ dependencies {
     "testTreeImplementation"("io.grpc:grpc-api:1.83.1")
     "testTreeImplementation"("io.grpc:grpc-servlet-jakarta:1.83.1")
     "testTreeImplementation"("io.grpc:grpc-netty-shaded:1.83.1")
-    "testTreeImplementation"("org.eclipse.jetty:jetty-server:12.1.11")
-    "testTreeImplementation"("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
-    "testTreeImplementation"("io.netty:netty-codec-http:4.2.16.Final")
+    "testTreeImplementation"("org.eclipse.jetty:jetty-server:12.1.12")
+    "testTreeImplementation"("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
+    "testTreeImplementation"("io.netty:netty-codec-http:4.2.17.Final")
     "testTreeImplementation"("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 }
 
