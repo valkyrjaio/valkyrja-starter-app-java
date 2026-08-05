@@ -54,13 +54,13 @@ dependencies {
     jacocoAgent("org.jacoco:org.jacoco.agent:0.8.15")
     jacocoAnt("org.jacoco:org.jacoco.ant:0.8.15")
 
-    implementation("io.valkyrja:valkyrja:26.6.1")
+    implementation("io.valkyrja:valkyrja:26.7.0")
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
     // app supplies them; the end-to-end tests start each of these servers for real.
-    implementation("org.eclipse.jetty:jetty-server:12.1.11")
-    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.eclipse.jetty:jetty-server:12.1.12")
+    implementation("io.netty:netty-codec-http:4.2.17.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
@@ -69,9 +69,9 @@ dependencies {
     implementation("io.grpc:grpc-api:1.83.1")
     implementation("io.grpc:grpc-servlet-jakarta:1.83.1")
     implementation("io.grpc:grpc-netty-shaded:1.83.1")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
-    sindri("io.valkyrja:sindri:26.4.7")
-    sindri("io.valkyrja:valkyrja:26.6.1:sources")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
+    sindri("io.valkyrja:sindri:26.4.8")
+    sindri("io.valkyrja:valkyrja:26.7.0:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")

@@ -40,15 +40,15 @@ tasks.jar {
 val sindri by configurations.creating
 
 dependencies {
-    sindri("io.valkyrja:sindri:26.4.7")
-    sindri("io.valkyrja:valkyrja:26.6.1:sources")
+    sindri("io.valkyrja:sindri:26.4.8")
+    sindri("io.valkyrja:valkyrja:26.7.0:sources")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares these compileOnly — the "optional adapter" philosophy — so each
     // consumer pulls only the runtime it actually uses. The JDK-backed app.http.App (ExchangeHttp)
     // needs none of them.
-    implementation("org.eclipse.jetty:jetty-server:12.1.11")
-    implementation("io.netty:netty-codec-http:4.2.16.Final")
+    implementation("org.eclipse.jetty:jetty-server:12.1.12")
+    implementation("io.netty:netty-codec-http:4.2.17.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
@@ -57,7 +57,7 @@ dependencies {
     implementation("io.grpc:grpc-api:1.83.1")
     implementation("io.grpc:grpc-servlet-jakarta:1.83.1")
     implementation("io.grpc:grpc-netty-shaded:1.83.1")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.11")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
 }
 
 val sindriConfigs =
