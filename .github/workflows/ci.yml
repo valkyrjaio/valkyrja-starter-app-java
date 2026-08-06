@@ -25,7 +25,7 @@ jobs:
   trailing-newline-check:
     name: Trailing Newline Check
     if: github.event_name == 'pull_request'
-    uses: valkyrjaio/.github/.github/workflows/_trailing-newline-check.yml@6241ffe0c94f3e445c8c9ca9e631f7809da7ef3a
+    uses: valkyrjaio/.github/.github/workflows/_trailing-newline-check.yml@fbf1e4db594578f8ea0c95ac8561cecb3c7a96c2
     permissions:
       pull-requests: write
       contents: read
@@ -36,7 +36,7 @@ jobs:
   markdown-check:
     name: Markdown Check
     if: github.event_name == 'pull_request'
-    uses: valkyrjaio/.github/.github/workflows/_markdown-check.yml@6241ffe0c94f3e445c8c9ca9e631f7809da7ef3a
+    uses: valkyrjaio/.github/.github/workflows/_markdown-check.yml@fbf1e4db594578f8ea0c95ac8561cecb3c7a96c2
     permissions:
       pull-requests: write
       contents: read
@@ -46,7 +46,7 @@ jobs:
 
   sindri-junit:
     name: Sindri JUnit
-    uses: valkyrjaio/.github/.github/workflows/_java-junit.yml@6241ffe0c94f3e445c8c9ca9e631f7809da7ef3a
+    uses: valkyrjaio/.github/.github/workflows/_java-junit.yml@fbf1e4db594578f8ea0c95ac8561cecb3c7a96c2
     with:
       ci-directory: .github/ci/sindri-junit
       # This job compiles the whole app but only asserts the generated App*Data classes, so its
@@ -76,7 +76,7 @@ jobs:
   copyright-header-check:
     name: Copyright Header Check
     if: github.event_name == 'pull_request'
-    uses: valkyrjaio/.github/.github/workflows/_copyright-header-check.yml@6241ffe0c94f3e445c8c9ca9e631f7809da7ef3a
+    uses: valkyrjaio/.github/.github/workflows/_copyright-header-check.yml@fbf1e4db594578f8ea0c95ac8561cecb3c7a96c2
     permissions:
       pull-requests: write
       contents: read
@@ -88,7 +88,7 @@ jobs:
   # as `CI / Tools / <Tool> / …`.
   tools:
     name: Tools
-    uses: valkyrjaio/.github/.github/workflows/_java-ci-tools.yml@6241ffe0c94f3e445c8c9ca9e631f7809da7ef3a
+    uses: valkyrjaio/.github/.github/workflows/_java-ci-tools.yml@fbf1e4db594578f8ea0c95ac8561cecb3c7a96c2
     with:
       copy-example-sources: true
       # The two entry point scripts are Spotless targets, so they are sources for the filter
