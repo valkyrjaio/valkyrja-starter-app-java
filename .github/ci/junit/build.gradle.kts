@@ -9,7 +9,7 @@
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.59.0"
+    id("com.github.ben-manes.versions") version "0.60.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -44,7 +44,7 @@ dependencies {
     jacocoAgent("org.jacoco:org.jacoco.agent:0.8.15")
     jacocoAnt("org.jacoco:org.jacoco.ant:0.8.15")
 
-    implementation("io.valkyrja:valkyrja:26.7.1")
+    implementation("io.valkyrja:valkyrja:26.8.0")
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
@@ -60,7 +60,7 @@ dependencies {
     implementation("io.grpc:grpc-servlet-jakarta:1.83.1")
     implementation("io.grpc:grpc-netty-shaded:1.83.1")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
-    testImplementation("org.junit.jupiter:junit-jupiter:6.1.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
