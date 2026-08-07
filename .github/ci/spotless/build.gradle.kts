@@ -6,20 +6,8 @@
  * Released under the MIT License. See LICENSE.md for details.
  */
 
-import io.valkyrja.spotless.CopyrightHeader
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("io.valkyrja:ci-spotless:26.1.3")
-    }
-}
-
 plugins {
-    id("com.diffplug.spotless") version "8.9.0"
+    id("io.valkyrja.ci-spotless") version "26.2.0"
     id("com.github.ben-manes.versions") version "0.59.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
@@ -42,30 +30,20 @@ tasks.named<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask>("
     rejectVersionIf { isNonStable(candidate.version) }
 }
 
-spotless {
-    java {
-        // The JUnit, sindri-JUnit and ArchUnit builds hold the app's other Java source trees;
-        // format them too. Each is scoped to `src/test/java` so any non-source .java under
-        // `src/test/resources` is never rewritten.
-        target(
-            "app/src/**/*.java",
-            ".github/ci/junit/src/test/java/**/*.java",
-            ".github/ci/sindri-junit/src/test/java/**/*.java",
-            ".github/ci/archunit/src/test/java/**/*.java",
-        )
-        targetExclude("**/*.example.java")
-        googleJavaFormat("1.27.0").aosp()
-        licenseHeader(CopyrightHeader.block("Valkyrja Application"))
-    }
+valkyrjaSpotless {
+    packageName = "Valkyrja Application"
 
-    // The two entry point scripts have no extension, so the `**/*.java` target above cannot
-    // reach them, and no other tool in the gate reads them. Their header went unchecked for
-    // that reason. This format holds them to the same header, in shell comment syntax.
-    // Warning: the license step replaces everything before the delimiter. The delimiter
-    // therefore matches the first line that starts with neither a comment mark nor a blank,
-    // and `skipLinesMatching` holds the shebang on line 1, which the header follows.
-    format("shell") {
-        target("app/bin/cli", "app/public/index")
-        licenseHeader(CopyrightHeader.shell("Valkyrja Application"), "(?=[^#\\s])").skipLinesMatching("^#!.*\$")
-    }
+    // The CI build entries stop at `src/test/java`, because a `src/test/resources` tree can hold
+    // .java files that are test data, and formatting one rewrites the input a test asserts on.
+    javaTargets = listOf(
+        "app/src/**/*.java",
+        ".github/ci/junit/src/test/java/**/*.java",
+        ".github/ci/sindri-junit/src/test/java/**/*.java",
+        ".github/ci/archunit/src/test/java/**/*.java",
+    )
+    javaTargetExcludes = listOf("**/*.example.java")
+
+    // An entry point script has no extension, so no .java pattern reaches it and no other tool
+    // in the gate reads it.
+    shellTargets = listOf("app/bin/cli", "app/public/index")
 }
