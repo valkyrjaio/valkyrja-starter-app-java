@@ -9,7 +9,7 @@
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.60.0"
+    id("com.github.ben-manes.versions") version "0.61.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -44,7 +44,7 @@ dependencies {
     jacocoAgent("org.jacoco:org.jacoco.agent:0.8.15")
     jacocoAnt("org.jacoco:org.jacoco.ant:0.8.15")
 
-    implementation("io.valkyrja:valkyrja:26.8.0")
+    implementation("io.valkyrja:valkyrja:26.8.1")
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
