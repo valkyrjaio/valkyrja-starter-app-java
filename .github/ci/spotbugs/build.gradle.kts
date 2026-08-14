@@ -54,7 +54,7 @@ dependencies {
     // toolVersion string is reported as outdated every run but never updated — it drifts forever.
     spotbugs("com.github.spotbugs:spotbugs:4.10.3")
 
-    implementation("io.valkyrja:valkyrja:26.9.0")
+    implementation("io.valkyrja:valkyrja:26.9.1")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
@@ -72,7 +72,7 @@ dependencies {
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
-    testImplementation("io.valkyrja:valkyrja:26.9.0")
+    testImplementation("io.valkyrja:valkyrja:26.9.1")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")

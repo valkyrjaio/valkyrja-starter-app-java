@@ -48,7 +48,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.9.0")
+    implementation("io.valkyrja:valkyrja:26.9.1")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
@@ -68,7 +68,7 @@ dependencies {
     errorprone("com.uber.nullaway:nullaway:0.13.8")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
-    testImplementation("io.valkyrja:valkyrja:26.9.0")
+    testImplementation("io.valkyrja:valkyrja:26.9.1")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
