@@ -21,13 +21,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-/**
- * Shared harness for the runtime end-to-end tests.
- *
- * <p>Reserves a free port, waits for a started server to accept connections, performs a real HTTP
- * request against it, and tears the server down robustly — so each runtime's test only has to say
- * how its own server starts and stops.
- */
+/** Shared harness for the runtime end-to-end tests. */
 public final class RuntimeServerFixture {
 
     private RuntimeServerFixture() {}
