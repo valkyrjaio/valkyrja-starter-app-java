@@ -42,7 +42,7 @@ subprojects {
 
     plugins.withId("java") {
         dependencies {
-            "implementation"("io.valkyrja:valkyrja:26.9.2")
+            "implementation"("io.valkyrja:valkyrja:26.9.3")
         }
 
         extensions.configure<JavaPluginExtension> {
