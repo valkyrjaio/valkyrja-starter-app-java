@@ -61,7 +61,7 @@ dependencies {
     // app supplies them; the end-to-end tests start each of these servers for real.
     implementation("org.eclipse.jetty:jetty-server:12.1.12")
     implementation("io.netty:netty-codec-http:4.2.17.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;

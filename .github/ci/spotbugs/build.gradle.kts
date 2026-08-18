@@ -60,7 +60,7 @@ dependencies {
     // The framework declares them compileOnly, so the app supplies them.
     implementation("org.eclipse.jetty:jetty-server:12.1.12")
     implementation("io.netty:netty-codec-http:4.2.17.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
@@ -83,7 +83,7 @@ dependencies {
     testImplementation("org.eclipse.jetty:jetty-server:12.1.12")
     testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
     testImplementation("io.netty:netty-codec-http:4.2.17.Final")
-    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.24")
+    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
 }
 
 spotbugs {
