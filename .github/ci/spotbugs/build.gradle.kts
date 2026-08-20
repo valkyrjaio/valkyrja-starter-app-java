@@ -12,7 +12,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
     java
-    id("com.github.spotbugs") version "6.5.10"
+    id("com.github.spotbugs") version "6.5.11"
     id("com.github.ben-manes.versions") version "0.61.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
@@ -54,7 +54,7 @@ dependencies {
     // toolVersion string is reported as outdated every run but never updated — it drifts forever.
     spotbugs("com.github.spotbugs:spotbugs:4.10.4")
 
-    implementation("io.valkyrja:valkyrja:26.9.6")
+    implementation("io.valkyrja:valkyrja:26.9.7")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
@@ -72,7 +72,7 @@ dependencies {
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
-    testImplementation("io.valkyrja:valkyrja:26.9.6")
+    testImplementation("io.valkyrja:valkyrja:26.9.7")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
