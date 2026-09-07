@@ -59,7 +59,7 @@ dependencies {
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
     // app supplies them; the end-to-end tests start each of these servers for real.
-    implementation("org.eclipse.jetty:jetty-server:12.1.12")
+    implementation("org.eclipse.jetty:jetty-server:12.1.13")
     implementation("io.netty:netty-codec-http:4.2.17.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
 
@@ -69,7 +69,7 @@ dependencies {
     implementation("io.grpc:grpc-api:1.84.0")
     implementation("io.grpc:grpc-servlet-jakarta:1.84.0")
     implementation("io.grpc:grpc-netty-shaded:1.84.0")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
     sindri("io.valkyrja:sindri:26.4.29")
     sindri("io.valkyrja:valkyrja:26.10.1:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
