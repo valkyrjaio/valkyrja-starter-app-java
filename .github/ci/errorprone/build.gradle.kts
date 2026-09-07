@@ -52,7 +52,7 @@ dependencies {
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
-    implementation("org.eclipse.jetty:jetty-server:12.1.12")
+    implementation("org.eclipse.jetty:jetty-server:12.1.13")
     implementation("io.netty:netty-codec-http:4.2.17.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
 
@@ -62,7 +62,7 @@ dependencies {
     implementation("io.grpc:grpc-api:1.84.0")
     implementation("io.grpc:grpc-servlet-jakarta:1.84.0")
     implementation("io.grpc:grpc-netty-shaded:1.84.0")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
     compileOnly("org.jspecify:jspecify:1.0.1")
     errorprone("com.google.errorprone:error_prone_core:2.50.0")
     errorprone("com.uber.nullaway:nullaway:0.14.1")
@@ -76,8 +76,8 @@ dependencies {
     testImplementation("io.grpc:grpc-api:1.84.0")
     testImplementation("io.grpc:grpc-servlet-jakarta:1.84.0")
     testImplementation("io.grpc:grpc-netty-shaded:1.84.0")
-    testImplementation("org.eclipse.jetty:jetty-server:12.1.12")
-    testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.12")
+    testImplementation("org.eclipse.jetty:jetty-server:12.1.13")
+    testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
     testImplementation("io.netty:netty-codec-http:4.2.17.Final")
     testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
 }
