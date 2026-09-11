@@ -70,7 +70,7 @@ dependencies {
     implementation("io.grpc:grpc-servlet-jakarta:1.84.0")
     implementation("io.grpc:grpc-netty-shaded:1.84.0")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
-    sindri("io.valkyrja:sindri:26.4.30")
+    sindri("io.valkyrja:sindri:26.4.31")
     sindri("io.valkyrja:valkyrja:26.10.3:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.23.0")
