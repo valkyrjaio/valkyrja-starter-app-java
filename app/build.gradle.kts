@@ -40,8 +40,8 @@ tasks.jar {
 val sindri by configurations.creating
 
 dependencies {
-    sindri("io.valkyrja:sindri:26.4.33")
-    sindri("io.valkyrja:valkyrja:26.10.4:sources")
+    sindri("io.valkyrja:sindri:26.4.34")
+    sindri("io.valkyrja:valkyrja:26.10.5:sources")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares these compileOnly — the "optional adapter" philosophy — so each
@@ -49,7 +49,7 @@ dependencies {
     // needs none of them.
     implementation("org.eclipse.jetty:jetty-server:12.1.13")
     implementation("io.netty:netty-codec-http:4.2.18.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;

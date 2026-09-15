@@ -7,7 +7,7 @@
  */
 
 plugins {
-    id("com.github.ben-manes.versions") version "0.63.0"
+    id("com.github.ben-manes.versions") version "0.63.1"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -42,7 +42,7 @@ subprojects {
 
     plugins.withId("java") {
         dependencies {
-            "implementation"("io.valkyrja:valkyrja:26.10.4")
+            "implementation"("io.valkyrja:valkyrja:26.10.5")
         }
 
         extensions.configure<JavaPluginExtension> {

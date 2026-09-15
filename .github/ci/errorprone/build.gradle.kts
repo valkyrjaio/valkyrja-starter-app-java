@@ -12,7 +12,7 @@ import net.ltgt.gradle.errorprone.errorprone
 plugins {
     java
     id("net.ltgt.errorprone") version "5.1.1"
-    id("com.github.ben-manes.versions") version "0.63.0"
+    id("com.github.ben-manes.versions") version "0.63.1"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -48,13 +48,13 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.10.4")
+    implementation("io.valkyrja:valkyrja:26.10.5")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
     implementation("org.eclipse.jetty:jetty-server:12.1.13")
     implementation("io.netty:netty-codec-http:4.2.18.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
@@ -68,7 +68,7 @@ dependencies {
     errorprone("com.uber.nullaway:nullaway:0.14.1")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
-    testImplementation("io.valkyrja:valkyrja:26.10.4")
+    testImplementation("io.valkyrja:valkyrja:26.10.5")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
@@ -79,7 +79,7 @@ dependencies {
     testImplementation("org.eclipse.jetty:jetty-server:12.1.13")
     testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
     testImplementation("io.netty:netty-codec-http:4.2.18.Final")
-    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
+    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 }
 
 fun isNonStable(version: String): Boolean {
