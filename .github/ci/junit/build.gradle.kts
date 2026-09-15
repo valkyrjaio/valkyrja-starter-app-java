@@ -9,7 +9,7 @@
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.63.0"
+    id("com.github.ben-manes.versions") version "0.63.1"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -44,14 +44,14 @@ dependencies {
     jacocoAgent("org.jacoco:org.jacoco.agent:0.8.15")
     jacocoAnt("org.jacoco:org.jacoco.ant:0.8.15")
 
-    implementation("io.valkyrja:valkyrja:26.10.4")
+    implementation("io.valkyrja:valkyrja:26.10.5")
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
     // app's own build supplies them; the end-to-end tests start these servers for real.
     implementation("org.eclipse.jetty:jetty-server:12.1.13")
     implementation("io.netty:netty-codec-http:4.2.18.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;

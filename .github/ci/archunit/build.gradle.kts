@@ -8,7 +8,7 @@
 
 plugins {
     java
-    id("com.github.ben-manes.versions") version "0.63.0"
+    id("com.github.ben-manes.versions") version "0.63.1"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -46,13 +46,13 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.10.4")
+    implementation("io.valkyrja:valkyrja:26.10.5")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
     implementation("org.eclipse.jetty:jetty-server:12.1.13")
     implementation("io.netty:netty-codec-http:4.2.18.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
@@ -68,7 +68,7 @@ dependencies {
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here. The app's
     // own dependencies are repeated because a custom source set does not inherit `main`'s.
-    "testTreeImplementation"("io.valkyrja:valkyrja:26.10.4")
+    "testTreeImplementation"("io.valkyrja:valkyrja:26.10.5")
     "testTreeImplementation"("org.junit.jupiter:junit-jupiter:6.1.3")
     "testTreeImplementation"("org.mockito:mockito-core:5.23.0")
     "testTreeImplementation"("org.mockito:mockito-junit-jupiter:5.23.0")
@@ -79,7 +79,7 @@ dependencies {
     "testTreeImplementation"("org.eclipse.jetty:jetty-server:12.1.13")
     "testTreeImplementation"("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
     "testTreeImplementation"("io.netty:netty-codec-http:4.2.18.Final")
-    "testTreeImplementation"("org.apache.tomcat.embed:tomcat-embed-core:11.0.25")
+    "testTreeImplementation"("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 }
 
 fun isNonStable(version: String): Boolean {
