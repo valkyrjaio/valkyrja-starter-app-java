@@ -54,7 +54,7 @@ dependencies {
     jacocoAgent("org.jacoco:org.jacoco.agent:0.8.15")
     jacocoAnt("org.jacoco:org.jacoco.ant:0.8.15")
 
-    implementation("io.valkyrja:valkyrja:26.10.7")
+    implementation("io.valkyrja:valkyrja:26.10.8")
     compileOnly("org.jspecify:jspecify:1.0.1")
 
     // Runtime SDKs for the worker entry points. The framework declares them compileOnly, so the
@@ -70,8 +70,8 @@ dependencies {
     implementation("io.grpc:grpc-servlet-jakarta:1.84.0")
     implementation("io.grpc:grpc-netty-shaded:1.84.0")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.13")
-    sindri("io.valkyrja:sindri:26.4.36")
-    sindri("io.valkyrja:valkyrja:26.10.7:sources")
+    sindri("io.valkyrja:sindri:26.4.37")
+    sindri("io.valkyrja:valkyrja:26.10.8:sources")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.24.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.24.0")
