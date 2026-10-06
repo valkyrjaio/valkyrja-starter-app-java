@@ -53,7 +53,7 @@ dependencies {
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
     implementation("org.eclipse.jetty:jetty-server:12.1.14")
-    implementation("io.netty:netty-codec-http:4.2.18.Final")
+    implementation("io.netty:netty-codec-http:4.2.19.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
@@ -78,7 +78,7 @@ dependencies {
     testImplementation("io.grpc:grpc-netty-shaded:1.84.0")
     testImplementation("org.eclipse.jetty:jetty-server:12.1.14")
     testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
-    testImplementation("io.netty:netty-codec-http:4.2.18.Final")
+    testImplementation("io.netty:netty-codec-http:4.2.19.Final")
     testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
 }
 
