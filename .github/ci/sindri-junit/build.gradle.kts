@@ -11,7 +11,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.64.0"
+    id("com.github.ben-manes.versions") version "0.65.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -66,9 +66,9 @@ dependencies {
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
     // the servlet transport also needs Jetty's ee10 servlet layer.
-    implementation("io.grpc:grpc-api:1.84.0")
-    implementation("io.grpc:grpc-servlet-jakarta:1.84.0")
-    implementation("io.grpc:grpc-netty-shaded:1.84.0")
+    implementation("io.grpc:grpc-api:1.84.1")
+    implementation("io.grpc:grpc-servlet-jakarta:1.84.1")
+    implementation("io.grpc:grpc-netty-shaded:1.84.1")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
     sindri("io.valkyrja:sindri:26.4.39")
     sindri("io.valkyrja:valkyrja:26.10.11:sources")

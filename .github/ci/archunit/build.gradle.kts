@@ -8,7 +8,7 @@
 
 plugins {
     java
-    id("com.github.ben-manes.versions") version "0.64.0"
+    id("com.github.ben-manes.versions") version "0.65.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -57,9 +57,9 @@ dependencies {
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
     // the servlet transport also needs Jetty's ee10 servlet layer.
-    implementation("io.grpc:grpc-api:1.84.0")
-    implementation("io.grpc:grpc-servlet-jakarta:1.84.0")
-    implementation("io.grpc:grpc-netty-shaded:1.84.0")
+    implementation("io.grpc:grpc-api:1.84.1")
+    implementation("io.grpc:grpc-servlet-jakarta:1.84.1")
+    implementation("io.grpc:grpc-netty-shaded:1.84.1")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
     compileOnly("org.jspecify:jspecify:1.0.1")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.5.1")
@@ -73,9 +73,9 @@ dependencies {
     "testTreeImplementation"("org.mockito:mockito-core:5.24.0")
     "testTreeImplementation"("org.mockito:mockito-junit-jupiter:5.24.0")
     "testTreeImplementation"("org.jspecify:jspecify:1.0.1")
-    "testTreeImplementation"("io.grpc:grpc-api:1.84.0")
-    "testTreeImplementation"("io.grpc:grpc-servlet-jakarta:1.84.0")
-    "testTreeImplementation"("io.grpc:grpc-netty-shaded:1.84.0")
+    "testTreeImplementation"("io.grpc:grpc-api:1.84.1")
+    "testTreeImplementation"("io.grpc:grpc-servlet-jakarta:1.84.1")
+    "testTreeImplementation"("io.grpc:grpc-netty-shaded:1.84.1")
     "testTreeImplementation"("org.eclipse.jetty:jetty-server:12.1.14")
     "testTreeImplementation"("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
     "testTreeImplementation"("io.netty:netty-codec-http:4.2.19.Final")
