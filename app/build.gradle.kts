@@ -40,7 +40,7 @@ tasks.jar {
 val sindri by configurations.creating
 
 dependencies {
-    sindri("io.valkyrja:sindri:26.4.42")
+    sindri("io.valkyrja:sindri:26.4.43")
     sindri("io.valkyrja:valkyrja:26.11.0:sources")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
