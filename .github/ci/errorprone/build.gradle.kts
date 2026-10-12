@@ -12,7 +12,7 @@ import net.ltgt.gradle.errorprone.errorprone
 plugins {
     java
     id("net.ltgt.errorprone") version "5.1.1"
-    id("com.github.ben-manes.versions") version "0.65.0"
+    id("com.github.ben-manes.versions") version "0.66.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -54,7 +54,7 @@ dependencies {
     // The framework declares them compileOnly, so the app supplies them.
     implementation("org.eclipse.jetty:jetty-server:12.1.14")
     implementation("io.netty:netty-codec-http:4.2.19.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.27")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
@@ -79,7 +79,7 @@ dependencies {
     testImplementation("org.eclipse.jetty:jetty-server:12.1.14")
     testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
     testImplementation("io.netty:netty-codec-http:4.2.19.Final")
-    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
+    testImplementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.27")
 }
 
 fun isNonStable(version: String): Boolean {
