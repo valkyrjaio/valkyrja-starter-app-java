@@ -11,7 +11,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 plugins {
     java
     jacoco
-    id("com.github.ben-manes.versions") version "0.65.0"
+    id("com.github.ben-manes.versions") version "0.66.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -61,7 +61,7 @@ dependencies {
     // app supplies them; the end-to-end tests start each of these servers for real.
     implementation("org.eclipse.jetty:jetty-server:12.1.14")
     implementation("io.netty:netty-codec-http:4.2.19.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.26")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.27")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
