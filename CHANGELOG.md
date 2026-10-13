@@ -1,6 +1,10 @@
 # Release Notes for 26.x
 
-## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.40...26.x)
+## [Unreleased](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.41...26.x)
+
+## [v26.4.41](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.40...v26.4.41) - 2026-10-13
+
+* [Dependency] build: Update Gradle dependencies by [@valkyrja-volundr](https://github.com/valkyrja-volundr)[bot] in https://github.com/valkyrjaio/valkyrja-starter-app-java/pull/204
 
 ## [v26.4.40](https://github.com/valkyrjaio/valkyrja-starter-app-java/compare/v26.4.39...v26.4.40) - 2026-10-12
 
