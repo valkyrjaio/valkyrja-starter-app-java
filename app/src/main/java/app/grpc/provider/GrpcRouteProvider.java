@@ -9,11 +9,18 @@
 package app.grpc.provider;
 
 import app.grpc.controller.GreeterController;
+import io.valkyrja.container.manager.contract.ContainerContract;
+import io.valkyrja.grpc.message.response.contract.ServiceResponseContract;
 import io.valkyrja.grpc.routing.data.contract.RouteContract;
 import io.valkyrja.grpc.routing.provider.contract.GrpcRouteProviderContract;
 import java.util.List;
 
 public final class GrpcRouteProvider implements GrpcRouteProviderContract {
+
+    public static ServiceResponseContract sayHelloHandler(
+            ContainerContract container, RouteContract route) {
+        return container.getSingleton(GreeterController.class).sayHello(container, route);
+    }
 
     @Override
     public List<Class<?>> getControllerClasses() {
