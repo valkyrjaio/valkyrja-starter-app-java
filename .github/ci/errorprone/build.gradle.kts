@@ -64,7 +64,7 @@ dependencies {
     implementation("io.grpc:grpc-netty-shaded:1.85.1")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
     compileOnly("org.jspecify:jspecify:1.0.1")
-    errorprone("com.google.errorprone:error_prone_core:2.50.0")
+    errorprone("com.google.errorprone:error_prone_core:2.51.0")
     errorprone("com.uber.nullaway:nullaway:0.14.2")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
