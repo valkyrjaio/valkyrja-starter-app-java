@@ -9,12 +9,14 @@
 package app.tests.unit.grpc.provider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 import app.grpc.controller.GreeterController;
 import app.grpc.provider.GrpcRouteProvider;
 import io.valkyrja.container.manager.Container;
+import io.valkyrja.container.throwable.exception.ContainerInvalidReferenceException;
 import io.valkyrja.grpc.message.response.contract.ServiceResponseContract;
 import io.valkyrja.grpc.routing.data.contract.RouteContract;
 import java.nio.charset.StandardCharsets;
@@ -33,6 +35,17 @@ final class GrpcRouteProviderTest {
     @Test
     void hasNoManualRoutes() {
         assertTrue(provider.getRoutes().isEmpty());
+    }
+
+    @Test
+    void sayHelloHandlerReadsTheControllerFromTheContainer() {
+        // A handler that built the controller itself would answer the same, so the empty
+        // container is what pins the resolution.
+        assertThrows(
+                ContainerInvalidReferenceException.class,
+                () ->
+                        GrpcRouteProvider.sayHelloHandler(
+                                new Container(), mock(RouteContract.class)));
     }
 
     @Test
