@@ -14,7 +14,7 @@ import io.valkyrja.grpc.message.response.ServiceResponse;
 import io.valkyrja.grpc.message.response.contract.ServiceResponseContract;
 import io.valkyrja.grpc.routing.attribute.Route;
 import io.valkyrja.grpc.routing.attribute.Service;
-import io.valkyrja.grpc.routing.attribute.route.RouteHandler;
+import io.valkyrja.grpc.routing.attribute.route.Handler;
 import io.valkyrja.grpc.routing.data.contract.RouteContract;
 import java.nio.charset.StandardCharsets;
 
@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 public class GreeterController {
 
     @Route(name = "SayHello")
-    @RouteHandler(handlerClass = GrpcRouteProvider.class, handlerMethod = "sayHelloHandler")
+    @Handler(handlerClass = GrpcRouteProvider.class, handlerMethod = "sayHelloHandler")
     public ServiceResponseContract sayHello(ContainerContract container, RouteContract route) {
         return ServiceResponse.ok("Hello!".getBytes(StandardCharsets.UTF_8));
     }
