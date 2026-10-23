@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 import app.grpc.provider.ComponentProvider;
 import app.grpc.provider.DataServiceProvider;
 import app.grpc.provider.GrpcRouteProvider;
+import app.grpc.provider.ServiceProvider;
 import io.valkyrja.application.kernel.contract.ApplicationContract;
 import io.valkyrja.application.provider.GrpcApplicationComponentProvider;
 import io.valkyrja.container.data.contract.ContainerDataContract;
@@ -42,8 +43,9 @@ final class ComponentProviderTest {
     void getContainerProvidersReturnsTheServiceProviders() {
         var providers = provider.getContainerProviders(app);
 
-        assertEquals(1, providers.size());
+        assertEquals(2, providers.size());
         assertInstanceOf(DataServiceProvider.class, providers.get(0));
+        assertInstanceOf(ServiceProvider.class, providers.get(1));
     }
 
     @Test

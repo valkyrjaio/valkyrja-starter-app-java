@@ -38,7 +38,7 @@ public final class ComponentProvider implements ComponentProviderContract {
 
     @Override
     public List<ServiceProviderContract> getContainerProviders(ApplicationContract app) {
-        return List.of(new DataServiceProvider());
+        return List.of(new DataServiceProvider(), new ServiceProvider());
     }
 
     @Override
