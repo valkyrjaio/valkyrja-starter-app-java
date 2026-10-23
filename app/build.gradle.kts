@@ -40,8 +40,8 @@ tasks.jar {
 val sindri by configurations.creating
 
 dependencies {
-    sindri("io.valkyrja:sindri:26.5.0")
-    sindri("io.valkyrja:valkyrja:26.12.0:sources")
+    sindri("io.valkyrja:sindri:26.5.1")
+    sindri("io.valkyrja:valkyrja:26.12.1:sources")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares these compileOnly — the "optional adapter" philosophy — so each
