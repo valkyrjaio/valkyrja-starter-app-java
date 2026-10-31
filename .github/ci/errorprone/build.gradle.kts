@@ -12,7 +12,7 @@ import net.ltgt.gradle.errorprone.errorprone
 plugins {
     java
     id("net.ltgt.errorprone") version "5.2.0"
-    id("com.github.ben-manes.versions") version "0.66.0"
+    id("com.github.ben-manes.versions") version "0.67.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.19"
 }
 
@@ -48,7 +48,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.12.4")
+    implementation("io.valkyrja:valkyrja:26.12.5")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
@@ -68,7 +68,7 @@ dependencies {
     errorprone("com.uber.nullaway:nullaway:0.14.3")
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here.
-    testImplementation("io.valkyrja:valkyrja:26.12.4")
+    testImplementation("io.valkyrja:valkyrja:26.12.5")
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.3")
     testImplementation("org.mockito:mockito-core:5.24.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.24.0")
