@@ -20,7 +20,7 @@ import io.valkyrja.cli.interaction.message.contract.AnswerContract;
 import io.valkyrja.cli.interaction.output.contract.OutputContract;
 import io.valkyrja.cli.interaction.output.factory.contract.OutputFactoryContract;
 import io.valkyrja.cli.routing.attribute.Route;
-import io.valkyrja.cli.routing.attribute.route.RouteHandler;
+import io.valkyrja.cli.routing.attribute.route.Handler;
 
 public class TestCommand extends Controller {
 
@@ -32,7 +32,7 @@ public class TestCommand extends Controller {
     }
 
     @Route(name = "test", description = "Test command")
-    @RouteHandler(handlerClass = CliRouteProvider.class, handlerMethod = "testCommandHandler")
+    @Handler(handlerClass = CliRouteProvider.class, handlerMethod = "testCommandHandler")
     public OutputContract run(CliConfigContract config) {
         return outputFactory
                 .createOutput()
