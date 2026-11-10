@@ -47,7 +47,7 @@ dependencies {
     // The framework declares these compileOnly — the "optional adapter" philosophy — so each
     // consumer pulls only the runtime it actually uses. The JDK-backed app.http.App (ExchangeHttp)
     // needs none of them.
-    implementation("org.eclipse.jetty:jetty-server:12.1.14")
+    implementation("org.eclipse.jetty:jetty-server:12.1.15")
     implementation("io.netty:netty-codec-http:4.2.20.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.27")
 
@@ -57,7 +57,7 @@ dependencies {
     implementation("io.grpc:grpc-api:1.85.1")
     implementation("io.grpc:grpc-servlet-jakarta:1.85.1")
     implementation("io.grpc:grpc-netty-shaded:1.85.1")
-    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.14")
+    implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.15")
 }
 
 val sindriConfigs =
