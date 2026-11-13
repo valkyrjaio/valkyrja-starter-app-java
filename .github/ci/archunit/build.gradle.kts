@@ -52,7 +52,7 @@ dependencies {
     // The framework declares them compileOnly, so the app supplies them.
     implementation("org.eclipse.jetty:jetty-server:12.1.15")
     implementation("io.netty:netty-codec-http:4.2.20.Final")
-    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.27")
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.29")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
@@ -79,7 +79,7 @@ dependencies {
     "testTreeImplementation"("org.eclipse.jetty:jetty-server:12.1.15")
     "testTreeImplementation"("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.15")
     "testTreeImplementation"("io.netty:netty-codec-http:4.2.20.Final")
-    "testTreeImplementation"("org.apache.tomcat.embed:tomcat-embed-core:11.0.27")
+    "testTreeImplementation"("org.apache.tomcat.embed:tomcat-embed-core:11.0.29")
 }
 
 fun isNonStable(version: String): Boolean {
