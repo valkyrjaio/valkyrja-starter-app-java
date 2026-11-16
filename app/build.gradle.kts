@@ -48,7 +48,7 @@ dependencies {
     // consumer pulls only the runtime it actually uses. The JDK-backed app.http.App (ExchangeHttp)
     // needs none of them.
     implementation("org.eclipse.jetty:jetty-server:12.1.15")
-    implementation("io.netty:netty-codec-http:4.2.20.Final")
+    implementation("io.netty:netty-codec-http:4.2.21.Final")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:11.0.29")
 
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
