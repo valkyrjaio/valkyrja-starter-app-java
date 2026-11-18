@@ -17,7 +17,7 @@ import io.valkyrja.cli.interaction.output.factory.contract.OutputFactoryContract
 import io.valkyrja.cli.routing.attribute.ArgumentParameter;
 import io.valkyrja.cli.routing.attribute.OptionParameter;
 import io.valkyrja.cli.routing.attribute.Route;
-import io.valkyrja.cli.routing.attribute.route.RouteHandler;
+import io.valkyrja.cli.routing.attribute.route.Handler;
 import io.valkyrja.cli.routing.enum_.ArgumentMode;
 import io.valkyrja.cli.routing.enum_.ArgumentValueMode;
 import io.valkyrja.cli.routing.enum_.OptionMode;
@@ -38,7 +38,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** A required, single-value argument. */
     @Route(name = "permutations:argument-required", description = "A required argument")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsArgumentRequiredHandler")
     @ArgumentParameter(
@@ -52,7 +52,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An optional, single-value argument. */
     @Route(name = "permutations:argument-optional", description = "An optional argument")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsArgumentOptionalHandler")
     @ArgumentParameter(
@@ -66,7 +66,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An optional array argument, which consumes every remaining input argument. */
     @Route(name = "permutations:argument-array", description = "An array argument")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsArgumentArrayHandler")
     @ArgumentParameter(
@@ -80,7 +80,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** A required array argument. */
     @Route(name = "permutations:argument-required-array", description = "A required array argument")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsArgumentRequiredArrayHandler")
     @ArgumentParameter(
@@ -94,7 +94,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An optional option that takes no value at all — a flag. */
     @Route(name = "permutations:option-none", description = "A flag option")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionNoneHandler")
     @OptionParameter(
@@ -108,7 +108,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An optional option that takes a single value. */
     @Route(name = "permutations:option-default", description = "A single value option")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionDefaultHandler")
     @OptionParameter(
@@ -122,7 +122,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An optional option that can be repeated. */
     @Route(name = "permutations:option-array", description = "A repeatable option")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionArrayHandler")
     @OptionParameter(
@@ -136,7 +136,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** A required option that takes a single value. */
     @Route(name = "permutations:option-required", description = "A required option")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionRequiredHandler")
     @OptionParameter(
@@ -150,7 +150,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** A required flag option that takes no value. */
     @Route(name = "permutations:option-required-none", description = "A required flag option")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionRequiredNoneHandler")
     @OptionParameter(
@@ -166,7 +166,7 @@ public class RoutingPermutationsCommand extends Controller {
     @Route(
             name = "permutations:option-required-array",
             description = "A required repeatable option")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionRequiredArrayHandler")
     @OptionParameter(
@@ -186,7 +186,7 @@ public class RoutingPermutationsCommand extends Controller {
      * (token) — because the global middleware handles those before a command is dispatched.
      */
     @Route(name = "permutations:option-short", description = "An option with short names")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionShortHandler")
     @OptionParameter(
@@ -201,7 +201,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An option restricted to a fixed set of valid values. */
     @Route(name = "permutations:option-valid-values", description = "An option with valid values")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionValidValuesHandler")
     @OptionParameter(
@@ -216,7 +216,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** An option that falls back to its declared default when it is not given. */
     @Route(name = "permutations:option-default-value", description = "An option with a default")
-    @RouteHandler(
+    @Handler(
             handlerClass = CliRouteProvider.class,
             handlerMethod = "permutationsOptionDefaultValueHandler")
     @OptionParameter(
@@ -231,7 +231,7 @@ public class RoutingPermutationsCommand extends Controller {
 
     /** Arguments and options declared together on one command. */
     @Route(name = "permutations:mixed", description = "Arguments and options together")
-    @RouteHandler(handlerClass = CliRouteProvider.class, handlerMethod = "permutationsMixedHandler")
+    @Handler(handlerClass = CliRouteProvider.class, handlerMethod = "permutationsMixedHandler")
     @ArgumentParameter(
             name = "name",
             description = "A required single value argument",
