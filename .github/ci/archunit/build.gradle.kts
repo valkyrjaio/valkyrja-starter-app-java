@@ -46,7 +46,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation("io.valkyrja:valkyrja:26.12.8")
+    implementation("io.valkyrja:valkyrja:26.13.2")
 
     // Runtime SDKs for the worker entry points (app.http.{Jetty,Netty,Tomcat}App).
     // The framework declares them compileOnly, so the app supplies them.
@@ -57,9 +57,9 @@ dependencies {
     // gRPC transports for the gRPC worker entry points (app.grpc.{Jetty,Netty,Tomcat}App). The
     // framework keeps io.grpc compileOnly, so the application supplies the transport it uses;
     // the servlet transport also needs Jetty's ee10 servlet layer.
-    implementation("io.grpc:grpc-api:1.85.1")
-    implementation("io.grpc:grpc-servlet-jakarta:1.85.1")
-    implementation("io.grpc:grpc-netty-shaded:1.85.1")
+    implementation("io.grpc:grpc-api:1.86.0")
+    implementation("io.grpc:grpc-servlet-jakarta:1.86.0")
+    implementation("io.grpc:grpc-netty-shaded:1.86.0")
     implementation("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.15")
     compileOnly("org.jspecify:jspecify:1.0.1")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.5.1")
@@ -68,14 +68,14 @@ dependencies {
 
     // Mirrors the JUnit build's test classpath — needed only so the tests compile here. The app's
     // own dependencies are repeated because a custom source set does not inherit `main`'s.
-    "testTreeImplementation"("io.valkyrja:valkyrja:26.12.8")
+    "testTreeImplementation"("io.valkyrja:valkyrja:26.13.2")
     "testTreeImplementation"("org.junit.jupiter:junit-jupiter:6.1.3")
-    "testTreeImplementation"("org.mockito:mockito-core:5.24.0")
-    "testTreeImplementation"("org.mockito:mockito-junit-jupiter:5.24.0")
+    "testTreeImplementation"("org.mockito:mockito-core:5.25.0")
+    "testTreeImplementation"("org.mockito:mockito-junit-jupiter:5.25.0")
     "testTreeImplementation"("org.jspecify:jspecify:1.0.1")
-    "testTreeImplementation"("io.grpc:grpc-api:1.85.1")
-    "testTreeImplementation"("io.grpc:grpc-servlet-jakarta:1.85.1")
-    "testTreeImplementation"("io.grpc:grpc-netty-shaded:1.85.1")
+    "testTreeImplementation"("io.grpc:grpc-api:1.86.0")
+    "testTreeImplementation"("io.grpc:grpc-servlet-jakarta:1.86.0")
+    "testTreeImplementation"("io.grpc:grpc-netty-shaded:1.86.0")
     "testTreeImplementation"("org.eclipse.jetty:jetty-server:12.1.15")
     "testTreeImplementation"("org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.15")
     "testTreeImplementation"("io.netty:netty-codec-http:4.2.21.Final")
